@@ -1,0 +1,52 @@
+.header {
+    z-index: 20;
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 34vh;
+    /* margin: 0vh auto; */
+    background: rgb(128, 0, 0);
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 0 1vmax maroon;
+}
+
+nav a {
+    /* margin-top: 1vh; */
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+    padding: 1.25vmax;
+    text-transform: uppercase;
+    font-size: 0.85vmax;
+}
+nav a:hover {
+    background: rgb(98, 0, 0);
+}
+nav a:active {
+    background: rgb(75, 0, 0);
+}
+
+.logo {
+    background-image: url('../../assets/HHLogo-L.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 37vw;
+    height: 28vh;
+    margin: 0vh auto;
+}
+
+
+nav {
+    margin-top: 0vh;
+    /* margin-left: 25vw; */
+    justify-self: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/* li {
+    float: left;
+} */

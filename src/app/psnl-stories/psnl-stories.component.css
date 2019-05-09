@@ -1,0 +1,16 @@
+.ghost {
+    height: 18vh;
+    width: 8vw;
+    background-image: url(../../assets/ghost.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 17vh auto;
+}
+
+.card {
+    z-index: 1;
+    background: rgb(31, 31, 31);
+    margin: -14.5vh auto;
+    width: 80vw;
+    height: 350vh;
+}
