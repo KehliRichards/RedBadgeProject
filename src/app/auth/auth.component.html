@@ -1,3 +1,31 @@
-<p>
-  auth works!
-</p>
+<form [formGroup]="signupForm" (ngSubmit)="registerUser()" class="form">
+  <div class="form">
+      <label class="text" for="name">Username:</label><br />
+      <input class="input" formControlName="name" type="text" name="name">
+      <br /><br />
+    <label class="text" for="email">Email:</label><br />
+    <input class="input" formControlName="email" type="text" name="email">
+    <br /><br />
+    <label class="text" for="password">Password:</label><br />
+    <input class="input" formControlName="password" type="password" name="password">
+    <br /><br />
+    <label class="text" for="location">Location:</label><br />
+    <input class="input" formControlName="location" type="text" name="location">
+    <br /><br />
+  </div>                            <!-- routerLink="/products" -->
+  <button class="button" type="submit" >Submit</button>
+  <!-- {{ deleteBtn === false ? <h1>Hello</h1> : <button>Hellllo</button> }} -->
+</form>
+
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
+    <div class="form">
+      <label class="text" for="email">Email:</label><br />
+      <input class="input" formControlName="email" type="text" name="email">
+      <br /><br />
+      <label class="text" for="password">Password:</label><br />
+      <input class="input" formControlName="password" type="password" name="password">
+      <br /><br />
+    </div>                            <!-- routerLink="/products" -->
+    <button class="button" type="submit" >Submit</button>
+    <!-- {{ deleteBtn === false ? <h1>Hello</h1> : <button>Hellllo</button> }} -->
+  </form>

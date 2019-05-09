@@ -67,7 +67,9 @@ export class NavComponent implements AfterViewInit {
   }
 
 
-
+  logout() {
+    localStorage.removeItem('token');
+  }
 
 
 }

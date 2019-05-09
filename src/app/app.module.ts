@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,9 @@ import { ULegendComponent } from './u-legend/u-legend.component';
 import { GhostHuntComponent } from './ghost-hunt/ghost-hunt.component';
 import { AuthComponent } from './auth/auth.component';
 import { AllComponent } from './all/all.component';
+
+import { AuthService } from './auth.service/auth.service';
+import { AuthGuard } from './auth.guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,9 +33,12 @@ import { AllComponent } from './all/all.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HttpClient, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
