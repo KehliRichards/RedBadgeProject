@@ -1,4 +1,13 @@
 <div class="ghost"></div>
 <div class="card">
-  <h1>ghost-hunt works!</h1>
+  <h1>Ghost Hunts</h1>
+  <div *ngFor="let hunt of ghosthunts">
+    <p>{{hunt.location}}</p>
+    <p>{{hunt.description}}</p>
+    <p>{{hunt.time}}</p>
+    <p>{{hunt.date}}</p>
+    <p>{{hunt.tag}}</p>
+    <p>Created by: {{hunt.name}}</p>
+
+  </div>
 </div>

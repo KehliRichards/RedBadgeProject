@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HuntLocationService } from '../huntLocation.service/hunt-location.service';
 
 @Component({
   selector: 'app-locations',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
+  public _locations = {};
+  locations = []
 
-  constructor() { }
+  @Input('location') location;
+
+  constructor(private lService: HuntLocationService) { }
 
   ngOnInit() {
+    this.findLocations();
+  }
+
+  findLocations(): void {
+    this.lService.getHauntedLocations().subscribe(Locations => {
+      console.log(Locations);
+      this.locations = Locations;
+    })
   }
 
 }

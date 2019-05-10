@@ -1,4 +1,13 @@
 <div class="ghost"></div>
 <div class="card">
-  <h1>location works!</h1>
+  <h1>Haunted Locations</h1>
+  <div *ngFor="let haunted of locations">
+
+    <img src="{{haunted.img}}" alt="location img" class="img" />
+    <!-- <p>{{location.img}}</p> -->
+    <p>{{haunted.location}}</p>
+    <p>{{haunted.description}}</p>
+    <p>{{haunted.tag}}</p>
+    <p>Created by: {{haunted.name}}</p>
+  </div>
 </div>
