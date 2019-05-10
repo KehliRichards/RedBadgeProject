@@ -1,4 +1,14 @@
-<div class="ghost"></div>
+<div class="ghost"> </div>
 <div class="card">
-  <h1>u-legend works!</h1>
+  <h1>Legends</h1>
+  <div  *ngFor= "let legend of legend">
+      <h1><em>{{legend.tile}}</em></h1>
+  <h3> {{legend.time}} </h3>
+  <p>{{legend.date}}</p>
+  <!-- <p>{{legend.img}}</p> -->
+  <p>{{legend.description}}</p>
+  <p>{{legend.tag}}</p>
+  </div>
+
 </div>
+

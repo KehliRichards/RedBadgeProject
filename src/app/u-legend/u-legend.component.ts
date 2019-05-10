@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import{FormGroup} from '@angular/forms';
+import {StoriesService} from '../story.service/stories.service';
 
 @Component({
   selector: 'app-u-legend',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./u-legend.component.css']
 })
 export class ULegendComponent implements OnInit {
+  createLegend: FormGroup
+  legend =[]
 
-  constructor() { }
+  @Input('urband') urban;
+
+  constructor(private storyService: StoriesService) { }
 
   ngOnInit() {
+
+    this.getLegend()
+  }
+
+  getLegend(): void {
+    this.storyService.getLegend().subscribe(Legends => {
+      this.legend =Legends;
+      console.log(Legends)
+    })
   }
 
 }
