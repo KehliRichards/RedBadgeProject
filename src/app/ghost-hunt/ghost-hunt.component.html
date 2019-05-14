@@ -1,12 +1,18 @@
 <div class="ghost"></div>
 <div class="card">
   <h1>Ghost Hunts</h1>
+  <!-- <app-ghost-hunt-modal></app-ghost-hunt-modal> -->
+  <div *ngIf="ghosthunts">
+    <button mat-raised-button (click)="openDialog()">Create a Post</button></div>
+
+
+
   <div *ngFor="let hunt of ghosthunts">
+    <p>{{hunt.tag}}</p>
     <p>{{hunt.location}}</p>
-    <p>{{hunt.description}}</p>
     <p>{{hunt.time}}</p>
     <p>{{hunt.date}}</p>
-    <p>{{hunt.tag}}</p>
+    <p>{{hunt.description}}</p>
     <p>Created by: {{hunt.name}}</p>
 
   </div>

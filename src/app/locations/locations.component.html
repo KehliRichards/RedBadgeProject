@@ -1,13 +1,18 @@
 <div class="ghost"></div>
 <div class="card">
   <h1>Haunted Locations</h1>
+
+  <div *ngIf="locations">
+    <button mat-raised-button (click)="openDialog()">Create a Post</button>
+  </div>
   <div *ngFor="let haunted of locations">
 
     <img src="{{haunted.img}}" alt="location img" class="img" />
-    <!-- <p>{{location.img}}</p> -->
+
     <p>{{haunted.location}}</p>
     <p>{{haunted.description}}</p>
     <p>{{haunted.tag}}</p>
     <p>Created by: {{haunted.name}}</p>
+    <button *ngIf="user">Delete Post</button>
   </div>
 </div>

@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule, MatDatepickerModule, MatFormFieldModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { AllComponent } from './all/all.component';
 
 import { AuthService } from './auth.service/auth.service';
 import { AuthGuard } from './auth.guard/auth.guard';
+import { GhostHuntModalComponent } from './ghost-hunt-modal/ghost-hunt-modal.component';
+import { HauntedLocationsModalComponent } from './haunted-locations-modal/haunted-locations-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +31,25 @@ import { AuthGuard } from './auth.guard/auth.guard';
     ULegendComponent,
     GhostHuntComponent,
     AuthComponent,
-    AllComponent
+    AllComponent,
+    GhostHuntModalComponent,
+    HauntedLocationsModalComponent
   ],
+  entryComponents: [GhostHuntModalComponent, HauntedLocationsModalComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatDatepickerModule,
+
+    MatFormFieldModule
+  ],
+  exports: [
+    MatDatepickerModule
   ],
   providers: [HttpClient, AuthService, AuthGuard],
   bootstrap: [AppComponent]
