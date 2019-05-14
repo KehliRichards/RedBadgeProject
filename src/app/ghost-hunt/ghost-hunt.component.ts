@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HuntLocationService } from '../huntLocation.service/hunt-location.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { GhostHuntModalComponent } from '../ghost-hunt-modal/ghost-hunt-modal.component';
+import { AuthService } from '../auth.service/auth.service';
 
 @Component({
   selector: 'app-ghost-hunt',
@@ -11,12 +12,12 @@ import { GhostHuntModalComponent } from '../ghost-hunt-modal/ghost-hunt-modal.co
 export class GhostHuntComponent implements OnInit {
   public _ghosthunts = {};
   ghosthunts = []
-
+  userId = ''
 
   @Input('hunt') hunt;
 
 
-  constructor(private hService: HuntLocationService, public dialog: MatDialog) { }
+  constructor(private hService: HuntLocationService, public dialog: MatDialog, private aService: AuthService) { }
 
 
   openDialog() {
@@ -31,6 +32,7 @@ export class GhostHuntComponent implements OnInit {
 
   ngOnInit() {
     this.findGhostHunts();
+    this.currentUser();
   }
 
   findGhostHunts(): void {
@@ -38,6 +40,18 @@ export class GhostHuntComponent implements OnInit {
       console.log(Ghosthunts);
       this.ghosthunts = Ghosthunts;
       this.ghosthunts.reverse();
+    })
+  }
+
+  deleteGhostHunt(id): void {
+    this.hService.deletePost(id).subscribe(GhostHunts => {
+      this.findGhostHunts();
+    })
+  }
+
+  currentUser(): void {
+    this.aService.getUser().subscribe(User => {
+      this.userId = User[0].id;
     })
   }
 

@@ -6,7 +6,7 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type' : 'application/json'
+    'Content-Type': 'application/json'
   })
 }
 
@@ -18,6 +18,7 @@ export class AuthService {
 
   private signupUrl = "http://localhost:3000/user/signup"
   private signinUrl = "http://localhost:3000/user/signin"
+  private userUrl = "http://localhost:3000/user/currentuser"
 
   constructor(/*public jwtHelper: JwtHelperService,*/ private http: HttpClient) { }
 
@@ -33,7 +34,7 @@ export class AuthService {
   }
 
   loggedIn() {
-    if(localStorage.length !== 0) {
+    if (localStorage.length !== 0) {
       return true;
     } else {
       return false;
@@ -42,5 +43,14 @@ export class AuthService {
     // return active;
   }
 
+  getUser() {
+    const users = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.get<any>(this.userUrl, users)
+  }
 
 }

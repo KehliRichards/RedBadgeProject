@@ -13,6 +13,6 @@
     <p>{{haunted.description}}</p>
     <p>{{haunted.tag}}</p>
     <p>Created by: {{haunted.name}}</p>
-    <button *ngIf="user">Delete Post</button>
+    <button *ngIf="userId === haunted.userId" (click)="deleteLocation(haunted.id)">Delete Post</button>
   </div>
 </div>

@@ -17,7 +17,6 @@ export class HuntLocationService {
 
   constructor(private http: HttpClient) { }
 
-  user: boolean = false;
 
   getHauntedLocations(): Observable<any> {
     let url = this.dbUrl + '/hauntedlocations'
@@ -41,8 +40,8 @@ export class HuntLocationService {
     return this.http.post<any>(`${this.dbUrl}/create`, body, posting);
   }
 
-  deletePost(): Observable<any> {
+  deletePost(id): Observable<any> {
     let url = this.dbUrl + '/hauntedlocations'
-    return this.http.delete<any>(`${this.dbUrl}/delete/:id`, httpOptions);
+    return this.http.delete<any>(`${this.dbUrl}/delete/${id}`, httpOptions);
   }
 }

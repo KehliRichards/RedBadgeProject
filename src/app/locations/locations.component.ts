@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HuntLocationService } from '../huntLocation.service/hunt-location.service';
 import { MatDialog } from '@angular/material';
 import { HauntedLocationsModalComponent } from '../haunted-locations-modal/haunted-locations-modal.component';
+import { AuthService } from '../auth.service/auth.service';
 
 @Component({
   selector: 'app-locations',
@@ -11,10 +12,14 @@ import { HauntedLocationsModalComponent } from '../haunted-locations-modal/haunt
 export class LocationsComponent implements OnInit {
   public _locations = {};
   locations = []
+  userId = ''
 
   @Input('location') location;
 
-  constructor(private lService: HuntLocationService, public dialog: MatDialog) { }
+  constructor(private lService: HuntLocationService, public dialog: MatDialog, private aService: AuthService) { }
+
+  user: boolean = false;
+
 
   openDialog() {
     const dialogRef = this.dialog.open(HauntedLocationsModalComponent)
@@ -27,6 +32,8 @@ export class LocationsComponent implements OnInit {
 
   ngOnInit() {
     this.findLocations();
+    this.currentUser();
+
   }
 
   findLocations(): void {
@@ -37,11 +44,17 @@ export class LocationsComponent implements OnInit {
     })
   }
 
-  deleteLocation(): void {
-    this.lService.deletePost().subscribe(Locations => {
-      console.log(Locations);
-      this.locations = Locations;
+  deleteLocation(id): void {
+    this.lService.deletePost(id).subscribe(Locations => {
+      this.findLocations();
     })
   }
 
+  currentUser(): void {
+    this.aService.getUser().subscribe(User => {
+      this.userId = User[0].id;
+    }
+
+    )
+  }
 }
