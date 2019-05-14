@@ -1,31 +1,41 @@
-<form [formGroup]="signupForm" (ngSubmit)="registerUser()" class="form">
-  <div class="form">
-      <label class="text" for="name">Username:</label><br />
-      <input class="input" formControlName="name" type="text" name="name">
-      <br /><br />
-    <label class="text" for="email">Email:</label><br />
-    <input class="input" formControlName="email" type="text" name="email">
-    <br /><br />
-    <label class="text" for="password">Password:</label><br />
-    <input class="input" formControlName="password" type="password" name="password">
-    <br /><br />
-    <label class="text" for="location">Location:</label><br />
-    <input class="input" formControlName="location" type="text" name="location">
-    <br /><br />
-  </div>                            <!-- routerLink="/products" -->
-  <button class="button" type="submit" >Submit</button>
-  <!-- {{ deleteBtn === false ? <h1>Hello</h1> : <button>Hellllo</button> }} -->
-</form>
+<div class="eyes">
+  <div class="auth">
+    <h1 class="head" name="head">{{head}}</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
+      <div>
+        <p *ngIf="login">
+          <mat-form-field color="warn" appearance="outline" class="outline" for="name">
+            <mat-label class="label">Username</mat-label>
+            <input class="input" formControlName="name" type="text" name="name" matInput
+              placeholder="Enter Your Username">
+          </mat-form-field>
+        </p>
 
-<form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
-    <div class="form">
-      <label class="text" for="email">Email:</label><br />
-      <input class="input" formControlName="email" type="text" name="email">
-      <br /><br />
-      <label class="text" for="password">Password:</label><br />
-      <input class="input" formControlName="password" type="password" name="password">
-      <br /><br />
-    </div>                            <!-- routerLink="/products" -->
-    <button class="button" type="submit" >Submit</button>
-    <!-- {{ deleteBtn === false ? <h1>Hello</h1> : <button>Hellllo</button> }} -->
-  </form>
+        <p>
+          <mat-form-field color="warn" appearance="outline" class="outline" for="email">
+            <mat-label class="label">Email</mat-label>
+            <input class="input" formControlName="email" type="text" name="email" matInput
+              placeholder="Enter Your Email">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field color="warn" appearance="outline" class="outline" for="password">
+            <mat-label class="label">Password</mat-label>
+            <input class="input" formControlName="password" type="password" name="password" matInput
+              placeholder="Enter Your Password">
+          </mat-form-field>
+        </p>
+
+        <p *ngIf="login">
+          <mat-form-field color="warn" appearance="outline" class="outline" for="location">
+            <mat-label class="label">Location</mat-label>
+            <input class="input" formControlName="location" type="text" name="location" matInput
+              placeholder="Enter Your Location">
+          </mat-form-field>
+        </p>
+      </div>
+      <button mat-raised-button color="maroon" class="sButton" type="submit">Submit</button>
+    </form>
+    <p class="tButton" (click)="toggle()"><a>{{account}}</a></p>
+  </div>
+</div>

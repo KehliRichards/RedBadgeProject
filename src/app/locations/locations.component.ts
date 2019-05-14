@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HuntLocationService } from '../huntLocation.service/hunt-location.service';
+import { MatDialog } from '@angular/material';
+import { AuthService } from '../auth.service/auth.service';
 
 @Component({
   selector: 'app-locations',
@@ -6,10 +9,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./locations.component.css']
 })
 export class LocationsComponent implements OnInit {
+  public _locations = {};
+  locations = []
 
-  constructor() { }
+  @Input('location') location;
+
+  constructor(private lService: HuntLocationService, public dialog: MatDialog, private aService: AuthService) { }
+
+  isAdmin: boolean = false;
 
   ngOnInit() {
+    this.findLocations();
+    this.currentUser();
+  }
+
+
+  currentUser(): void {
+    this.aService.getUser().subscribe(User => {
+      console.log(User[0]);
+      // this.user = User[0];
+      // this.user.reverse();
+      if(User[0].isAdmin === true) {
+        this.isAdmin = true;
+      } else {
+        this.isAdmin = false;
+      }
+    })
+  }
+
+
+  findLocations(): void {
+    this.lService.getHauntedLocations().subscribe(Locations => {
+      console.log(Locations);
+      this.locations = Locations;
+      this.locations.reverse();
+    })
   }
 
 }

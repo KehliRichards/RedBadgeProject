@@ -10,38 +10,52 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
-  signupForm: FormGroup;
+  // signupForm: FormGroup;
   loginForm: FormGroup;
+  login: boolean = false;
+  head: string = 'Login';
+  account: string = 'Need an account?'
 
   // registerUserData = {}
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router,) { }
 
   ngOnInit() {
-    this.signupForm = this.fb.group({
+    // this.head = this.login === false ? 'Sign Up' : 'Login';
+    // this.signupForm = this.fb.group({
+    //   name: [''],
+    //   email: [''],
+    //   password: [''],
+    //   location: ['']
+    // })
+    if(this.login === true) {
+    this.loginForm = this.fb.group({
+      email: [''],
+      password: ['']
+    })
+  } else {
+    this.loginForm = this.fb.group({
       name: [''],
       email: [''],
       password: [''],
       location: ['']
     })
-    this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
-    })
+  }
   }
 
-  registerUser() {
-    this.auth.signupUser(this.signupForm.value)
-    .subscribe(
-      res => {
-        console.log(res);
-        localStorage.setItem('token', res.sessionToken);
-        this.router.navigate(['/home'])
-      },
-      err => console.log(err)
-    )
-  }
+  // registerUser() {
+  //   this.auth.signupUser(this.signupForm.value)
+  //   .subscribe(
+  //     res => {
+  //       console.log(res);
+  //       localStorage.setItem('token', res.sessionToken);
+  //       this.router.navigate(['/home'])
+  //     },
+  //     err => console.log(err)
+  //   )
+  // }
 
   loginUser() {
+    if(this.login === false) {
     this.auth.signinUser(this.loginForm.value)
     .subscribe(
       res => {
@@ -51,6 +65,29 @@ export class AuthComponent implements OnInit {
       },
       err => console.log(err)
     )
+    }else{
+      this.auth.signupUser(this.loginForm.value)
+    .subscribe(
+      res => {
+        console.log(res);
+        localStorage.setItem('token', res.sessionToken);
+        this.router.navigate(['/home'])
+      },
+      err => console.log(err)
+    )
+    }
+  }
+
+  toggle() {
+    if(this.login === false) {
+      this.login = true;
+      this.head = 'Sign Up'
+      this.account = 'Already have an account?'
+    } else {
+      this.login = false;
+      this.head = 'Login'
+      this.account = 'Need an account?'
+    }
   }
 
 }

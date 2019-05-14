@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Action } from 'rxjs/internal/scheduler/Action';
-// import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type' : 'application/json'
+    'Content-Type' : 'application/json',
+    // 'Authorization': localStorage.getItem('token')
   })
 }
+
+// const httpOptionsV = {
+//   headers: new HttpHeaders({
+//     'Content-Type' : 'application/json',
+//     'Authorization': localStorage.getItem('token')
+//   })
+// }
 
 
 @Injectable({
@@ -18,8 +24,9 @@ export class AuthService {
 
   private signupUrl = "http://localhost:3000/user/signup"
   private signinUrl = "http://localhost:3000/user/signin"
+  private userUrl = "http://localhost:3000/user/currentuser"
 
-  constructor(/*public jwtHelper: JwtHelperService,*/ private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
   signupUser(user) {
@@ -32,14 +39,23 @@ export class AuthService {
     return this.http.post<any>(this.signinUrl, user, httpOptions)
   }
 
+  getUser() {
+    // console.log(user);
+    const authHeaders = {
+      headers : new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization' : localStorage.getItem('token')
+      })
+    }
+    return this.http.get<any>(this.userUrl, authHeaders)
+  }
+
   loggedIn() {
     if(localStorage.length !== 0) {
       return true;
     } else {
       return false;
     }
-    // console.log(localStorage);
-    // return active;
   }
 
 

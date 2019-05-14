@@ -1,3 +1,25 @@
-<p>
-  profile works!
-</p>
+<div class="info">
+  <h1>{{ user.name }}</h1>
+  <hr />
+  <h3>{{ user.email }}</h3>
+  <br/>
+  <hr/>
+  <button mat-raised-button color="maroon" (click)="buttonA()">My Haunted Locations</button><br/>
+  <button mat-raised-button color="maroon" (click)="buttonB()">My Personal Stories</button><br/>
+  <button mat-raised-button color="maroon" (click)="buttonC()">My Urban Legends</button><br/>
+  <button mat-raised-button color="maroon" (click)="buttonD()">My Ghost Hunts</button><br/>
+</div>
+
+<div class="posts" id="style-2">
+  <div *ngFor="let haunted of locations">
+
+    <h1 *ngIf="haunted.location">{{haunted.location}}</h1>
+    <h1 *ngIf="haunted.title">{{haunted.title}}</h1>
+    <img *ngIf="haunted.img" src="{{haunted.img}}" alt="location img" class="img" />
+    <!-- <p>{{location.img}}</p> -->
+    <p>{{haunted.description}}</p>
+    <p>{{haunted.tag}}</p>
+    <p>Created by: {{haunted.userName}}</p>
+    <br/>
+  </div>
+</div>

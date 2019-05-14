@@ -9,6 +9,11 @@
     text-align: center;
     align-items: center;
     box-shadow: 0 0 1vmax maroon;
+    transition: top 0.4s;
+}
+
+.header-profile {
+    top: -24.75vh;
 }
 
 nav a {
@@ -50,3 +55,9 @@ ul {
 /* li {
     float: left;
 } */
+
+.list2 {
+    float: right;
+    margin-right: 1.75vw;
+    margin-top: -27vh;
+}

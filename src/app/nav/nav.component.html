@@ -2,12 +2,12 @@
   <div class="logo"></div>
   <nav>
     <ul>
-      <li><a routerLink="/home">Home</a>
-      <a routerLink="/locations">Haunted Locations</a>
-      <a routerLink="/stories">Personal Stories</a>
-      <a routerLink="/legends">Urban Legends</a>
-      <a routerLink="/hunt">Ghost Hunts</a>
-      <a routerLink="/profile">Profile</a>
+      <li><a routerLink="/home" name="home" (click)="nav()">Home</a>
+      <a routerLink="/locations" name="locations" (click)="nav()">Haunted Locations</a>
+      <a routerLink="/stories" name="stories" (click)="nav()">Personal Stories</a>
+      <a routerLink="/legends" name="legends" (click)="nav()">Urban Legends</a>
+      <a routerLink="/hunt" name="hunts" (click)="nav()">Ghost Hunts</a></li>
+      <li class="list2"><a routerLink="/profile" name="profile" (click)="nav()">Profile</a>
       <a routerLink="/" (click)="logout()">Logout</a></li>
     </ul>
   </nav>

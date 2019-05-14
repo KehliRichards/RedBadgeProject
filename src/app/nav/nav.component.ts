@@ -36,6 +36,7 @@ enum Direction {
 })
 export class NavComponent implements AfterViewInit {
 
+  public isProfile = true;
 
   private isVisible = true;
 
@@ -69,6 +70,24 @@ export class NavComponent implements AfterViewInit {
 
   logout() {
     localStorage.removeItem('token');
+    // location.reload();
+  }
+
+  nav() {
+    let element = event.target as HTMLInputElement;
+    if (element.name === 'profile') {
+      this.isProfile = false;
+      let head = document.querySelector('.header');
+      head.classList.add('header-profile');
+      // console.log(head.classList);
+      // console.log(this.isProfile);
+    } else {
+      this.isProfile = true;
+      let head = document.querySelector('.header');
+      head.classList.remove('header-profile');
+      // console.log(head.classList);
+      // console.log(this.isProfile);
+    }
   }
 
 

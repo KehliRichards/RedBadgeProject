@@ -1,3 +1,69 @@
-.form {
-    margin-top: 40vh;
+.eyes {
+    background-image: url('../../assets/eyes1.png');
+    background-size: 90%;
+    position: fixed;
+    background-position-x: 75%;
+    background-position-y: 46%;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.auth {
+    width: 30vw;
+    background-color: black;
+    margin-top: 37vh;
+    margin-left: 35vw;
+    text-align: center;
+    padding-top: 1vh;
+    padding-bottom: 0.1vh;
+    border-radius: 0.5vmax;
+}
+
+.head {
+    font-size: 2.5vmax;
+    /* margin-top: 38vh; */
+    color: maroon;
+    margin-top: 0vh;
+    margin-bottom: 1vh;
+}
+
+.outline {
+    color: maroon;
+    width: 25vw;
+    height: 8vh;
+    filter: saturate(200%) brightness(50%);
+}
+
+.mat-raised-button.mat-maroon {
+    background-color: maroon;
+    color: black;
+ }
+
+.input {
+    font-size: 1.25vmax;
+}
+
+.sButton {
+    width: 25vw;
+    height: 5.5vh;
+    font-size: 1.5vmax;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    margin-top: 0.75vh;
+    /* margin-left: -20vw; */
+}
+
+.tButton {
+    color: maroon;
+    font-weight: 800;
+    /* align-self: right; */
+    /* float: right; */
+    margin-top: 1.5vh;
+    /* margin-right: 37.5vw; 37.5 */
+}
+.tButton:hover {
+    color: rgb(85, 0, 0);
+    text-decoration-line: underline;
+    cursor: pointer;
 }
