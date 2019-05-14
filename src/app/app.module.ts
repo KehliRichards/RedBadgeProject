@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { AllComponent } from './all/all.component';
 
 import { AuthService } from './auth.service/auth.service';
 import { AuthGuard } from './auth.guard/auth.guard';
+import { MyDialogComponent } from './mydialog/mydialog.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +30,19 @@ import { AuthGuard } from './auth.guard/auth.guard';
     ULegendComponent,
     GhostHuntComponent,
     AuthComponent,
-    AllComponent
+    AllComponent,
+    MyDialogComponent
   ],
+  entryComponents: [MyDialogComponent],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [HttpClient, AuthService, AuthGuard],
   bootstrap: [AppComponent]

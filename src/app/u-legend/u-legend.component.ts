@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import{FormGroup} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import {StoriesService} from '../story.service/stories.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MyDialogComponent } from '../mydialog/mydialog.component';
+
 
 @Component({
   selector: 'app-u-legend',
@@ -8,22 +10,33 @@ import {StoriesService} from '../story.service/stories.service';
   styleUrls: ['./u-legend.component.css']
 })
 export class ULegendComponent implements OnInit {
-  createLegend: FormGroup
   legend =[]
 
-  @Input('urband') urban;
+ 
 
-  constructor(private storyService: StoriesService) { }
+  constructor(private storyService: StoriesService, public dialog: MatDialog) { }
 
   ngOnInit() {
 
     this.getLegend()
   }
 
+    openDialog(){
+      this.dialog.open(MyDialogComponent)
+    }
+
+
   getLegend(): void {
     this.storyService.getLegend().subscribe(Legends => {
       this.legend =Legends;
+      this.legend.reverse();
       console.log(Legends)
+    })
+  }
+  deleteLegend(id) : void {
+    this.storyService.deleteLegend(id).subscribe(Legend =>{
+      this.legend =Legend
+      this.getLegend();
     })
   }
 

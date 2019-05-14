@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {StoriesService} from '../story.service/stories.service';
-import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { MyDialogComponent } from '../mydialog/mydialog.component';
+
 
 
 @Component({
@@ -10,27 +11,46 @@ import { Observable } from 'rxjs';
   styleUrls: ['./psnl-stories.component.css']
 })
 export class PsnlStoriesComponent implements OnInit {
-  createStory: FormGroup
-  stories =[]
+  stories =[];
 
-  @Input('tale') tale;
 
-  constructor(private storyService: StoriesService) { }
+
+
+  // @Input()
+
+  constructor(private storyService: StoriesService, public dialog: MatDialog) { }
 
   ngOnInit() {
+   
 
     this.getStory()
     }
+        openDialog(){
+         this.dialog.open(MyDialogComponent)
+
+        }
   
     
     
   getStory(): void{
     this.storyService.getStory().subscribe(Story => {
       this.stories = Story;
+      this.stories.reverse()
       console.log(Story)
     } )
   }
 
+
+  deleteStory(id) : void {
+    this.storyService.deleteStory(id).subscribe(Story =>{
+      this.stories =Story
+      this.getStory();
+    })
   }
+
+
+
+  }
+
 
 

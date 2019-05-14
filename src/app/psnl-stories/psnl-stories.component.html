@@ -1,15 +1,18 @@
-  <div class="ghost">
-    <h1>Stories</h1>
-  </div>
-     <div class="card" *ngFor= "let story of stories">
+  <div class="ghost"> </div>
+  <div class="card">
+  <h1>Stories</h1>
+  <button mat-raised-button (click)="openDialog()"> Create</button>
+     <div *ngFor= "let story of stories">
       <h1><em>{{story.title}}</em></h1>
       <h3> {{story.time}} </h3>
       <p>{{ story.date}}</p>
      <img src="{{story.img}}" />
       <p>{{story.description}}</p>
       <p>{{story.tag}}</p>
-      <p> {{story.name}} </p>
+      <p> Created by: {{story.name}} </p>
+      <button (click)="deleteStory(story.id)">Delete</button>
      </div>
+    </div>
 
 
  
