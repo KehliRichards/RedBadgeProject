@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule, MatDatepickerModule, MatFormFieldModule } from '@angular/material';
+import { MatDialogModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { AuthService } from './auth.service/auth.service';
 import { AuthGuard } from './auth.guard/auth.guard';
 import { GhostHuntModalComponent } from './ghost-hunt-modal/ghost-hunt-modal.component';
 import { HauntedLocationsModalComponent } from './haunted-locations-modal/haunted-locations-modal.component';
+import { HuntEditModalComponent } from './hunt-edit-modal/hunt-edit-modal.component';
+import { LocationEditModalComponent } from './location-edit-modal/location-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import { HauntedLocationsModalComponent } from './haunted-locations-modal/haunte
     AuthComponent,
     AllComponent,
     GhostHuntModalComponent,
-    HauntedLocationsModalComponent
+    HauntedLocationsModalComponent,
+    HuntEditModalComponent,
+    LocationEditModalComponent
   ],
-  entryComponents: [GhostHuntModalComponent, HauntedLocationsModalComponent],
+  entryComponents: [GhostHuntModalComponent, HauntedLocationsModalComponent, HuntEditModalComponent, LocationEditModalComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -45,12 +49,13 @@ import { HauntedLocationsModalComponent } from './haunted-locations-modal/haunte
     ReactiveFormsModule,
     MatDialogModule,
     MatDatepickerModule,
-
-    MatFormFieldModule
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  exports: [
-    MatDatepickerModule
-  ],
+  // exports: [
+  //   MatDatepickerModule
+  // ],
   providers: [HttpClient, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })

@@ -44,4 +44,15 @@ export class HuntLocationService {
     let url = this.dbUrl + '/hauntedlocations'
     return this.http.delete<any>(`${this.dbUrl}/delete/${id}`, httpOptions);
   }
+
+  editPost(body, id): Observable<any> {
+    const posting = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    let url = this.dbUrl + '/hauntedlocations'
+    return this.http.put<any>(`${this.dbUrl}/update/${id}`, body, posting);
+  }
 }

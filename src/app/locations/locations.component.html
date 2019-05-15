@@ -14,5 +14,6 @@
     <p>{{haunted.tag}}</p>
     <p>Created by: {{haunted.name}}</p>
     <button *ngIf="userId === haunted.userId" (click)="deleteLocation(haunted.id)">Delete Post</button>
+    <button *ngIf="userId === haunted.userId" (click)="openDialog1(haunted)">Edit Post</button>
   </div>
 </div>

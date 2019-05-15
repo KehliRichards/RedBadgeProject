@@ -1,7 +1,7 @@
-<form [formGroup]="createForm" (ngSubmit)="onCreateForm($event)">
+<form [formGroup]="editForm" (ngSubmit)="onEditForm($event)">
 
 
-  <h2 mat-dialog-title>Ghost Hunting? Fill out your info below!</h2>
+  <h2 mat-dialog-title>Edit your post here</h2>
 
   <label for="tag">Tag:</label>
   <select formControlName="tag" name="tags">
@@ -20,8 +20,6 @@
 
   <br />
 
-  <!-- <label class="text" for="date">Date:</label>
-  <input formControlName="date" class="input" type="text" name="date" /> -->
 
   <mat-form-field>
     <mat-label for="date">Date:</mat-label>

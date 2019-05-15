@@ -15,5 +15,6 @@
     <p>{{hunt.description}}</p>
     <p>Created by: {{hunt.name}}</p>
     <button *ngIf="userId === hunt.userId" (click)="deleteGhostHunt(hunt.id)">Delete Post</button>
+    <button *ngIf="userId === hunt.userId" (click)="openDialog1(hunt)">Edit Post</button>
   </div>
 </div>

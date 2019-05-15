@@ -3,6 +3,7 @@ import { HuntLocationService } from '../huntLocation.service/hunt-location.servi
 import { MatDialog } from '@angular/material';
 import { HauntedLocationsModalComponent } from '../haunted-locations-modal/haunted-locations-modal.component';
 import { AuthService } from '../auth.service/auth.service';
+import { LocationEditModalComponent } from '../location-edit-modal/location-edit-modal.component';
 
 @Component({
   selector: 'app-locations',
@@ -13,6 +14,7 @@ export class LocationsComponent implements OnInit {
   public _locations = {};
   locations = []
   userId = ''
+  postInfo = ''
 
   @Input('location') location;
 
@@ -23,6 +25,19 @@ export class LocationsComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(HauntedLocationsModalComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.findLocations();
+    });
+  }
+
+  openDialog1(info) {
+    // console.log(id);
+    this.postInfo = info;
+    const dialogRef = this.dialog.open(LocationEditModalComponent, {
+      data: this.postInfo
+    })
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

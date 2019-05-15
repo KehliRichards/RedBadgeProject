@@ -3,6 +3,7 @@ import { HuntLocationService } from '../huntLocation.service/hunt-location.servi
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { GhostHuntModalComponent } from '../ghost-hunt-modal/ghost-hunt-modal.component';
 import { AuthService } from '../auth.service/auth.service';
+import { HuntEditModalComponent } from '../hunt-edit-modal/hunt-edit-modal.component';
 
 @Component({
   selector: 'app-ghost-hunt',
@@ -13,12 +14,14 @@ export class GhostHuntComponent implements OnInit {
   public _ghosthunts = {};
   ghosthunts = []
   userId = ''
+  postInfo = ''
 
   @Input('hunt') hunt;
 
 
   constructor(private hService: HuntLocationService, public dialog: MatDialog, private aService: AuthService) { }
 
+  user: boolean = false;
 
   openDialog() {
     const dialogRef = this.dialog.open(GhostHuntModalComponent)
@@ -29,10 +32,23 @@ export class GhostHuntComponent implements OnInit {
     });
   }
 
+  openDialog1(info) {
+    // console.log(id);
+    this.postInfo = info;
+    const dialogRef = this.dialog.open(HuntEditModalComponent, {
+      data: this.postInfo
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.findGhostHunts();
+    });
+  }
 
   ngOnInit() {
     this.findGhostHunts();
     this.currentUser();
+
   }
 
   findGhostHunts(): void {
@@ -55,6 +71,12 @@ export class GhostHuntComponent implements OnInit {
     })
   }
 
+  // editGhostHunts(event, id): void {
+
+  //   this.hService.editPost(event, id).subscribe(GhostHunts => {
+  //     this.findGhostHunts();
+  //   })
+  // }
 
 
 }
