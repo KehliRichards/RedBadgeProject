@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { StoriesService } from '../story.service/stories.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { PsnlStoriesComponent } from '../psnl-stories/psnl-stories.component';
+
 
 
 
