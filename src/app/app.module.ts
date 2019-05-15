@@ -19,6 +19,7 @@ import { AllComponent } from './all/all.component';
 import { AuthService } from './auth.service/auth.service';
 import { AuthGuard } from './auth.guard/auth.guard';
 import { MyDialogComponent } from './mydialog/mydialog.component';
+import { UpdateModalComponent } from './updatemodal/updatemodal.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { MyDialogComponent } from './mydialog/mydialog.component';
     GhostHuntComponent,
     AuthComponent,
     AllComponent,
-    MyDialogComponent
+    MyDialogComponent,
+    UpdateModalComponent
   ],
-  entryComponents: [MyDialogComponent],
+  entryComponents: [MyDialogComponent,UpdateModalComponent ],
 
   imports: [
     BrowserModule,

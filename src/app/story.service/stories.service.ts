@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable} from 'rxjs';
-import { patchComponentDefWithScope } from '@angular/core/src/render3/jit/module';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -34,6 +33,20 @@ getLegend(): Observable<any>{
   makeStory(body) : Observable<any[]>{
     return this.http.post<any>(`${this.dbUrl}/post`, body, httpOptions)
   }
+
+  updateStory(body, id) :  Observable<any>{
+
+    const httpOption = {
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+   
+    return this.http.put<any>(`${this.dbUrl}/update/${id}`,body, httpOption)
+
+  }
+
 
 
   deleteStory(id) : Observable<any[]>{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { StoriesService } from '../story.service/stories.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 
@@ -16,10 +17,9 @@ export class MyDialogComponent implements OnInit {
   tag=[{value: 'Personal Stories'},
         {value: 'Urban Legends'},
         {value: 'Ghost hunts'},
-        {value: 'Haunted Locations'}
-]
+        {value: 'Haunted Locations'}]
 
-  constructor( private fb: FormBuilder, private storyService: StoriesService ) { }
+  constructor( private fb: FormBuilder, private storyService: StoriesService, public dialog: MatDialogRef<any> ) { }
 
   ngOnInit() {
     this.createStory =this.fb.group({
@@ -32,6 +32,7 @@ export class MyDialogComponent implements OnInit {
 
     })
   
+  
   }
 
 
@@ -39,6 +40,11 @@ export class MyDialogComponent implements OnInit {
   // console.log(this.createStory.value)
     this.stories.unshift(this.createStory.value)
     this.storyService.makeStory(this.createStory.value).subscribe(Story => this.stories[0] =Story)
+    this.closeDialog();
+  }
+
+  closeDialog() {
+    this.dialog.close();
   }
 
 }

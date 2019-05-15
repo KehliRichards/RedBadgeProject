@@ -18,6 +18,7 @@ export class AuthService {
 
   private signupUrl = "http://localhost:3000/user/signup"
   private signinUrl = "http://localhost:3000/user/signin"
+  private userUrl = "http://localhost:3000/user/currentuser"
 
   constructor(/*public jwtHelper: JwtHelperService,*/ private http: HttpClient) { }
 
@@ -41,6 +42,15 @@ export class AuthService {
     // console.log(localStorage);
     // return active;
   }
+getUser(){
+  const httpOptionsB = {
+    headers: new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+  }
+return this.http.get<any>(this.userUrl, httpOptionsB)
 
+}
 
 }

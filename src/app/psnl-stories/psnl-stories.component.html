@@ -10,7 +10,8 @@
       <p>{{story.description}}</p>
       <p>{{story.tag}}</p>
       <p> Created by: {{story.name}} </p>
-      <button (click)="deleteStory(story.id)">Delete</button>
+      <button *ngIf="userId === story.userId" (click)="deleteStory(story.id)">Delete</button>
+      <button *ngIf="userId === story.userId" (click) ="updateDialog(story)">Update</button>
      </div>
     </div>
 
