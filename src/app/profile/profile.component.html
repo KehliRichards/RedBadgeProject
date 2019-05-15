@@ -2,12 +2,22 @@
   <h1>{{ user.name }}</h1>
   <hr />
   <h3>{{ user.email }}</h3>
+  <hr />
+  <h3>{{ user.location }}</h3>
   <br/>
   <hr/>
   <button mat-raised-button color="maroon" (click)="buttonA()">My Haunted Locations</button><br/>
   <button mat-raised-button color="maroon" (click)="buttonB()">My Personal Stories</button><br/>
   <button mat-raised-button color="maroon" (click)="buttonC()">My Urban Legends</button><br/>
   <button mat-raised-button color="maroon" (click)="buttonD()">My Ghost Hunts</button><br/>
+
+
+  <!-- <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+  </mat-form-field> -->
+
 </div>
 
 <div class="posts" id="style-2">
@@ -19,7 +29,8 @@
     <!-- <p>{{location.img}}</p> -->
     <p>{{haunted.description}}</p>
     <p>{{haunted.tag}}</p>
-    <p>Created by: {{haunted.userName}}</p>
+    <p>Created by: {{haunted.name}}</p>
     <br/>
   </div>
+
 </div>

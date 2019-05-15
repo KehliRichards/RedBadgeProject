@@ -12,5 +12,6 @@
     background: rgb(31, 31, 31);
     margin: -14.5vh auto;
     width: 80vw;
-    height: 350vh;
+    /* height: 350vh; */
+    margin-bottom: 3vh;
 }

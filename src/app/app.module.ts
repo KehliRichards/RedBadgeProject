@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatDialogModule } from '@angular/material';
+import { MatInputModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,7 +43,9 @@ import { AuthGuard } from './auth.guard/auth.guard';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [HttpClient, AuthService, AuthGuard],
   bootstrap: [AppComponent]

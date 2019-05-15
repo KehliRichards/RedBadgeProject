@@ -13,6 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class HuntLocationService {
+  public id = '';
   private dbUrl = 'http://localhost:3000/huntlocations';
 
   constructor(private http: HttpClient) { }
@@ -42,6 +43,17 @@ export class HuntLocationService {
     }
     // let url = this.dbUrl + '/usershauntedlocations'
     return this.http.get<any>(`${this.dbUrl}/usersghosthunts`, userHeaders);
+  }
+
+  deletePostAdmin(id): Observable<any> {
+    const deleteHeaders = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    // let url = this.dbUrl + '/usershauntedlocations'
+    return this.http.delete<any>(`${this.dbUrl}/admindelete/${id}`, deleteHeaders);
   }
 
   getGhostHunts(): Observable<any> {

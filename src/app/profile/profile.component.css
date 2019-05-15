@@ -16,6 +16,7 @@
     margin-right: 2vw;
     border-radius: 0.75vmax;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 #style-2::-webkit-scrollbar {
 	width: 0.75vw;
@@ -25,7 +26,8 @@
 #style-2::-webkit-scrollbar-thumb {
 	border-radius: 0.5vmax;
     box-shadow: inset 0 0 0.4vmax black;
-	background-color: maroon;
+    background-color: maroon;
+    /* scroll-behavior: smooth; */
 }
 
 #style-2::-webkit-scrollbar-track {

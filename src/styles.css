@@ -6,3 +6,21 @@ body {
     margin: 0;
     padding: 0;
 }
+
+body::-webkit-scrollbar {
+	width: 0.9vw;
+	background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 0.5vmax;
+    box-shadow: inset 0 0 0.4vmax black;
+    background-color: maroon;
+    /* scroll-behavior: smooth; */
+}
+
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0.65vmax black;
+	border-radius: 0.5vmax;
+    background-color: lightgrey;
+}
