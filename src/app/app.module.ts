@@ -22,6 +22,8 @@ import { GhostHuntModalComponent } from './ghost-hunt-modal/ghost-hunt-modal.com
 import { HauntedLocationsModalComponent } from './haunted-locations-modal/haunted-locations-modal.component';
 import { HuntEditModalComponent } from './hunt-edit-modal/hunt-edit-modal.component';
 import { LocationEditModalComponent } from './location-edit-modal/location-edit-modal.component';
+import { MyDialogComponent } from './mydialog/mydialog.component';
+import { UpdateModalComponent } from './updatemodal/updatemodal.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,14 @@ import { LocationEditModalComponent } from './location-edit-modal/location-edit-
     GhostHuntModalComponent,
     HauntedLocationsModalComponent,
     HuntEditModalComponent,
-    LocationEditModalComponent
+    LocationEditModalComponent,
+    MyDialogComponent,
+    UpdateModalComponent
   ],
-  entryComponents: [GhostHuntModalComponent, HauntedLocationsModalComponent, HuntEditModalComponent, LocationEditModalComponent],
+  entryComponents: [GhostHuntModalComponent, HauntedLocationsModalComponent, HuntEditModalComponent, LocationEditModalComponent, MyDialogComponent, UpdateModalComponent],
+
+
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -51,7 +58,8 @@ import { LocationEditModalComponent } from './location-edit-modal/location-edit-
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+
   ],
   // exports: [
   //   MatDatepickerModule

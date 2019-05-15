@@ -1,4 +1,18 @@
-<div class="ghost"></div>
+<div class="ghost"> </div>
 <div class="card">
-  <h1>u-legend works!</h1>
+  <h1>Legends</h1>
+  <button mat-raised-button (click)="openDialog()"> Create</button>
+  <div  *ngFor= "let legend of legend">
+  <h1><em>{{legend.title}}</em></h1>
+  <h3> {{legend.time}} </h3>
+  <p>{{legend.date}}</p>
+  <img src="{{legend.img}}" />
+  <p>{{legend.description}}</p>
+  <p>{{legend.tag}}</p>
+  <p> Created by: {{legend.name}} </p>
+  <button *ngIf="userId === legend.userId" (click)="deleteLegend(legend.id)">Delete</button>
+  <button *ngIf="userId === legend.userId" (click)="updateDialog(legend)">Update</button>
+  </div>
+
 </div>
+
