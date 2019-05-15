@@ -1,18 +1,19 @@
 <div class="ghost"></div>
 <div class="card">
   <h1>Haunted Locations</h1>
-  <!-- <hr/> -->
-  <!-- <button mat-raised-button>Open Dialog</button> -->
+  <div *ngIf="locations">
+    <button mat-raised-button (click)="openDialog()">Create a Post</button>
+  </div>
   <div *ngFor="let haunted of locations">
-    <hr />
-    <h1>{{haunted.location}}</h1>
+
     <img src="{{haunted.img}}" alt="location img" class="img" />
-    <!-- <p>{{location.img}}</p> -->
+
+    <p>{{haunted.location}}</p>
     <p>{{haunted.description}}</p>
     <p>{{haunted.tag}}</p>
     <p>Created by: {{haunted.name}}</p>
     <button *ngIf="isAdmin" (click)="adminDelete(haunted.id)">Delete</button>
-    <button *ngIf="userid === haunted.userId && isAdmin === false">delete</button>
-    <br /><br/>
+    <button *ngIf="userId === haunted.userId && isAdmin === false" (click)="deleteLocation(haunted.id)">Delete Post</button>
+    <button *ngIf="userId === haunted.userId" (click)="openDialog1(haunted)">Edit Post</button>
   </div>
 </div>

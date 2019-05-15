@@ -41,9 +41,43 @@ export class HuntLocationService {
         'Authorization': localStorage.getItem('token')
       })
     }
-    // let url = this.dbUrl + '/usershauntedlocations'
     return this.http.get<any>(`${this.dbUrl}/usersghosthunts`, userHeaders);
+
   }
+   
+
+  getGhostHunts(): Observable<any> {
+    let url = this.dbUrl + '/ghosthunts'
+    return this.http.get<any>(`${this.dbUrl}/ghosthunts`, httpOptions);
+  }
+
+  createPost(body): Observable<any> {
+    const posting = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    let url = this.dbUrl + '/create'
+    return this.http.post<any>(`${this.dbUrl}/create`, body, posting);
+  }
+
+  deletePost(id): Observable<any> {
+    let url = this.dbUrl + '/hauntedlocations'
+    return this.http.delete<any>(`${this.dbUrl}/delete/${id}`, httpOptions);
+  }
+
+  editPost(body, id): Observable<any> {
+    const posting = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    let url = this.dbUrl + '/hauntedlocations'
+    return this.http.put<any>(`${this.dbUrl}/update/${id}`, body, posting);
+  }
+
 
   deletePostAdmin(id): Observable<any> {
     const deleteHeaders = {
@@ -56,13 +90,4 @@ export class HuntLocationService {
     return this.http.delete<any>(`${this.dbUrl}/admindelete/${id}`, deleteHeaders);
   }
 
-  getGhostHunts(): Observable<any> {
-    // let url = this.dbUrl + '/ghosthunts'
-    return this.http.get<any>(`${this.dbUrl}/ghosthunts`, httpOptions);
-  }
-
-  CreatePost(): Observable<any> {
-    // let url = this.dbUrl + '/create'
-    return this.http.get<any>(`${this.dbUrl}/create`, httpOptions);
-  }
 }

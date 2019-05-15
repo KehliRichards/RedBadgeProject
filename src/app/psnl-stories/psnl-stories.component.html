@@ -1,4 +1,20 @@
-<div class="ghost"></div>
-<div class="card">
-  <h1>psnl-stories works!</h1>
-</div>
+  <div class="ghost"> </div>
+  <div class="card">
+  <h1>Stories</h1>
+  <button mat-raised-button (click)="openDialog()"> Create</button>
+     <div *ngFor= "let story of stories">
+      <h1><em>{{story.title}}</em></h1>
+      <h3> {{story.time}} </h3>
+      <p>{{ story.date}}</p>
+     <img src="{{story.img}}" />
+      <p>{{story.description}}</p>
+      <p>{{story.tag}}</p>
+      <p> Created by: {{story.name}} </p>
+      <button *ngIf="isAdmin" (click)="adminDelete(story.id)">Delete</button>
+      <button *ngIf="userId === story.userId && isAdmin === false" (click)="deleteStory(story.id)">Delete</button>
+      <button *ngIf="userId === story.userId" (click) ="updateDialog(story)">Update</button>
+     </div>
+    </div>
+
+
+ 

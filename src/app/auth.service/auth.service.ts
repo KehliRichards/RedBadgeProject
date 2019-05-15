@@ -39,24 +39,22 @@ export class AuthService {
     return this.http.post<any>(this.signinUrl, user, httpOptions)
   }
 
-  getUser() {
-    // console.log(user);
-    const authHeaders = {
-      headers : new HttpHeaders({
-        'Content-Type' : 'application/json',
-        'Authorization' : localStorage.getItem('token')
-      })
-    }
-    return this.http.get<any>(this.userUrl, authHeaders)
-  }
-
   loggedIn() {
-    if(localStorage.length !== 0) {
+    if (localStorage.length !== 0) {
       return true;
     } else {
       return false;
     }
   }
 
+  getUser() {
+    const users = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.get<any>(this.userUrl, users)
+  }
 
 }

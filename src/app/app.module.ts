@@ -20,6 +20,12 @@ import { AllComponent } from './all/all.component';
 
 import { AuthService } from './auth.service/auth.service';
 import { AuthGuard } from './auth.guard/auth.guard';
+import { GhostHuntModalComponent } from './ghost-hunt-modal/ghost-hunt-modal.component';
+import { HauntedLocationsModalComponent } from './haunted-locations-modal/haunted-locations-modal.component';
+import { HuntEditModalComponent } from './hunt-edit-modal/hunt-edit-modal.component';
+import { LocationEditModalComponent } from './location-edit-modal/location-edit-modal.component';
+import { MyDialogComponent } from './mydialog/mydialog.component';
+import { UpdateModalComponent } from './updatemodal/updatemodal.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +37,18 @@ import { AuthGuard } from './auth.guard/auth.guard';
     ULegendComponent,
     GhostHuntComponent,
     AuthComponent,
-    AllComponent
+    AllComponent,
+    GhostHuntModalComponent,
+    HauntedLocationsModalComponent,
+    HuntEditModalComponent,
+    LocationEditModalComponent,
+    MyDialogComponent,
+    UpdateModalComponent
   ],
+  entryComponents: [GhostHuntModalComponent, HauntedLocationsModalComponent, HuntEditModalComponent, LocationEditModalComponent, MyDialogComponent, UpdateModalComponent],
+
+
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,6 +63,9 @@ import { AuthGuard } from './auth.guard/auth.guard';
     MatDatepickerModule,
     MatNativeDateModule
   ],
+  // exports: [
+  //   MatDatepickerModule
+  // ],
   providers: [HttpClient, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
