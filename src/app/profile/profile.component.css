@@ -40,3 +40,9 @@
     background-color: maroon;
     color: black;
 } */
+
+.title {
+    font-family: Alice, serif;
+    font-size: 6vmax;
+    margin: 1vh auto;
+}

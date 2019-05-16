@@ -1,4 +1,14 @@
 <div class="ghost"></div>
 <div class="card">
-  <h1>all works!</h1>
+  <p class="welcome">Welcome to Something in the Shadows!</p>
+  <!-- <hr/> -->
+  <p class="new">Check out the newest post to our website!*</p><br/>
+  <hr/>
+  <p class="title" *ngIf='newestPost.location'>{{newestPost.location}}</p>
+  <p class="title" *ngIf='newestPost.title'>{{newestPost.title}}</p>
+  <p class="by" *ngIf='newestPost.name'>Created by: {{newestPost.name}}</p>
+  <img class="img" *ngIf='newestPost.img' src="{{newestPost.img}}" />
+  <p class="des" *ngIf='newestPost.description'>{{newestPost.description}}</p>
+  <p class="dateTime" *ngIf='newestPost.date'>{{newestPost.date}}</p><p class="dateTime" *ngIf='newestPost.time'>{{newestPost.time}}</p><br/>
+  <p class="more">*Want to see more posts like this? Go check out the {{newestPost.tag}} page!</p>
 </div>

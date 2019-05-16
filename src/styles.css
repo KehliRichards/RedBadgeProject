@@ -24,3 +24,8 @@ body::-webkit-scrollbar-track {
 	border-radius: 0.5vmax;
     background-color: lightgrey;
 }
+
+@font-face {
+    font-family: Alice;
+    src: url('./assets/Alice_in_Wonderland_3.ttf') format('truetype');
+}

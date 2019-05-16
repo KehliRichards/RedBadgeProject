@@ -18,6 +18,17 @@ export class HuntLocationService {
 
   constructor(private http: HttpClient) { }
 
+  getAllHL(): Observable<any> {
+    const httpOption = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    // let url = this.dbUrl + '/hauntedlocations'
+    return this.http.get<any>(`${this.dbUrl}/getall`, httpOption);
+  }
+
   getHauntedLocations(): Observable<any> {
     // let url = this.dbUrl + '/hauntedlocations'
     return this.http.get<any>(`${this.dbUrl}/hauntedlocations`, httpOptions);

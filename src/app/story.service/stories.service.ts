@@ -20,6 +20,17 @@ export class StoriesService {
   constructor(private http: HttpClient) { }
 
 
+  getAllSL(): Observable<any> {
+    const httpOption = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    // let url = this.dbUrl + '/hauntedlocations'
+    return this.http.get<any>(`${this.dbUrl}/getall`, httpOption);
+  }
+
   getUsersPersonalStories(): Observable<any> {
     const userHeaders = {
       headers: new HttpHeaders({

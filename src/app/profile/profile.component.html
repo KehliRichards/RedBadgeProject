@@ -23,8 +23,8 @@
 <div class="posts" id="style-2">
   <div *ngFor="let haunted of locations">
 
-    <h1 *ngIf="haunted.location">{{haunted.location}}</h1>
-    <h1 *ngIf="haunted.title">{{haunted.title}}</h1>
+    <p class="title" *ngIf="haunted.location">{{haunted.location}}</p>
+    <p class="title" *ngIf="haunted.title">{{haunted.title}}</p>
     <img *ngIf="haunted.img" src="{{haunted.img}}" alt="location img" class="img" />
     <!-- <p>{{location.img}}</p> -->
     <p>{{haunted.description}}</p>
