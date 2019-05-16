@@ -16,6 +16,10 @@ export class GhostHuntComponent implements OnInit {
   userId = ''
   postInfo = ''
 
+
+
+
+
   @Input('hunt') hunt;
 
 
@@ -24,14 +28,14 @@ export class GhostHuntComponent implements OnInit {
   isAdmin: boolean = false;
   user: boolean = false;
 
-  
+
   ngOnInit() {
     this.currentUser();
     this.currentUserA();
     this.findGhostHunts();
-    
+
   }
-  
+
   openDialog() {
     const dialogRef = this.dialog.open(GhostHuntModalComponent)
 
@@ -53,7 +57,7 @@ export class GhostHuntComponent implements OnInit {
       this.findGhostHunts();
     });
   }
-  
+
   findGhostHunts(): void {
     this.hService.getGhostHunts().subscribe(Ghosthunts => {
       console.log(Ghosthunts);
@@ -73,7 +77,7 @@ export class GhostHuntComponent implements OnInit {
       console.log(User[0]);
       // this.user = User[0];
       // this.user.reverse();
-      if(User[0].isAdmin === true) {
+      if (User[0].isAdmin === true) {
         this.isAdmin = true;
       } else {
         this.isAdmin = false;
