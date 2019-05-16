@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -61,7 +62,10 @@ import { UpdateModalComponent } from './updatemodal/updatemodal.component';
     MatButtonModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBOxufilZizAdak2M71czQBRJW-X9M7bP0'
+    })
   ],
   // exports: [
   //   MatDatepickerModule

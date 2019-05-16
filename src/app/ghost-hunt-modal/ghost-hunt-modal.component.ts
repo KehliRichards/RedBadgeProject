@@ -13,6 +13,9 @@ export class GhostHuntModalComponent implements OnInit {
 
   createForm: FormGroup;
   posts = [];
+  latitude = 39.690617;
+  longitude = -86.173619;
+  locationChosen = false;
 
   tags = [
     'Haunted Locations',
@@ -20,6 +23,13 @@ export class GhostHuntModalComponent implements OnInit {
     'Urban Legends',
     'Ghost Hunts'
   ];
+
+  onChosenLocation(event) {
+    console.log(event);
+    this.latitude = event.coords.lat;
+    this.longitude = event.coords.lng;
+    this.locationChosen = true;
+  }
 
   constructor(private fb: FormBuilder, private dbService: HuntLocationService, public DialogRef: MatDialogRef<GhostHuntModalComponent>
   ) { }
