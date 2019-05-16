@@ -14,3 +14,20 @@
     width: 80vw;
     height: 350vh;
 }
+
+.example-card {
+    max-width: 400vw;
+    margin: 15vh auto;
+    text-align: center;
+    padding: 3em;
+
+  }
+
+  .button{
+      background-color:maroon;
+  }
+
+
+  .header{
+    padding: .5em;
+  }

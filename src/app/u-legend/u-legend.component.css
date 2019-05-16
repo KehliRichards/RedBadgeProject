@@ -12,5 +12,22 @@
     background: rgb(31, 31, 31);
     margin: -14.5vh auto;
     width: 80vw;
-    height: 350vh;
+    height: 100%;
 }
+
+.example-card {
+    max-width: 400vw;
+    margin: 15vh auto;
+    text-align: center;
+    padding: 3em;
+
+  }
+
+  .button{
+      background-color:maroon;
+  }
+
+
+  .header{
+    padding: .5em;
+  }
