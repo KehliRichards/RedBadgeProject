@@ -3,10 +3,7 @@
     <label for="title">Title: </label>
     <input formControlName="title" type="text" name="title" required>
     <br>
-    <br>
-    <label for="time">Time: </label>
-    <input formControlName="time" type="text" name="time">
-    <br>
+
 
     <br>
     <label for="date">Date: </label>
@@ -14,8 +11,8 @@
     <br>
 
     <br>
-    <label for="img">Image</label>
-    <input formControlName="img" type="url" name="img">
+    <label for="img">Image: </label>
+    <input formControlName="img" type="img" name="img" width="10" height="20">
     <br>
 
     <br>
@@ -26,7 +23,7 @@
     <br>
     <label for="tag">Tag: </label>
     <select formControlName="tag" name="tag" required>
-        <option *ngFor="let t of tag" value="{{t.value}}">{{t.value}}</option>
+        <option *ngFor="let t of tag" value="{{t}}">{{t}}</option>
     </select>
 
     <mat-dialog-actions>

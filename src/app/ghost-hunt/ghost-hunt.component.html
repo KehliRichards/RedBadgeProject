@@ -1,9 +1,10 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="ghost"></div>
 <div class="card">
-  <h1>Ghost Hunts</h1>
+  <h1 class="header">Ghost Hunts</h1>
   <!-- <app-ghost-hunt-modal></app-ghost-hunt-modal> -->
   <div *ngIf="ghosthunts">
-    <button mat-raised-button (click)="openDialog()">Create a Post</button></div>
+    <button mat-raised-button (click)="openDialog()" class="button">Create a Post</button></div>
 
 
   <div *ngFor="let hunt of ghosthunts">
@@ -14,8 +15,10 @@
     <p>{{hunt.date}}</p>
     <p>{{hunt.description}}</p>
     <p>Created by: {{hunt.name}}</p>
-    <button *ngIf="isAdmin" (click)="adminDelete(hunt.id)">Delete</button>
-    <button *ngIf="userId === hunt.userId && isAdmin === false" (click)="deleteGhostHunt(hunt.id)">Delete Post</button>
-    <button *ngIf="userId === hunt.userId" (click)="openDialog1(hunt)">Edit Post</button>
+ 
+    <button *ngIf="isAdmin" (click)="adminDelete(hunt.id)" class="button">Delete</button>
+    <button *ngIf="userId === hunt.userId && isAdmin === false" (click)="deleteGhostHunt(hunt.id)" class="button">Delete</button>
+    <button *ngIf="userId === hunt.userId" (click)="openDialog1(hunt)" class="button">Edit</button>
+
   </div>
 </div>
