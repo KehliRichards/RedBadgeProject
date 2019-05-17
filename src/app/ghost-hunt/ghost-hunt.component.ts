@@ -16,8 +16,8 @@ export class GhostHuntComponent implements OnInit {
   userId = ''
   postInfo = ''
 
-
-
+  latitude = 39.690617;
+  longitude = -86.173619;
 
 
   @Input('hunt') hunt;
@@ -60,7 +60,7 @@ export class GhostHuntComponent implements OnInit {
 
   findGhostHunts(): void {
     this.hService.getGhostHunts().subscribe(Ghosthunts => {
-      console.log(Ghosthunts);
+      // console.log(Ghosthunts);
       this.ghosthunts = Ghosthunts;
       this.ghosthunts.reverse();
     })

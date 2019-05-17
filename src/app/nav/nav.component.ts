@@ -42,12 +42,21 @@ export class NavComponent implements AfterViewInit {
 
   @HostBinding('@toggle')
   get toggle(): VisibilityState {
-    return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
+    if(this.isVisible === false) {
+      let head = document.querySelector('.header');
+      head.classList.add('header-scroll');
+      return VisibilityState.Hidden
+    } else {
+      let head = document.querySelector('.header');
+      head.classList.remove('header-scroll');
+      return  VisibilityState.Visible
+    }
+    // return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
 
   ngAfterViewInit() {
     const scroll$ = fromEvent(window, 'scroll').pipe(
-      throttleTime(10),
+      throttleTime(50),
       map(() => window.pageYOffset),
       pairwise(),
       map(([y1, y2]): Direction => (y2 < y1 ? Direction.Up : Direction.Down)),

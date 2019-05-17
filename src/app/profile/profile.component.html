@@ -1,15 +1,17 @@
 <div class="info">
-  <h1>{{ user.name }}</h1>
+  <p class="username">Your Username: </p>
+  <p class="userinfo">{{ user.name }}</p>
   <hr />
-  <h3>{{ user.email }}</h3>
+  <p class="userinfo">Your Email: </p>
+  <p class="userinfo">{{ user.email }}</p>
   <hr />
-  <h3>{{ user.location }}</h3>
-  <br/>
-  <hr/>
-  <button mat-raised-button color="maroon" (click)="buttonA()">My Haunted Locations</button><br/>
-  <button mat-raised-button color="maroon" (click)="buttonB()">My Personal Stories</button><br/>
-  <button mat-raised-button color="maroon" (click)="buttonC()">My Urban Legends</button><br/>
-  <button mat-raised-button color="maroon" (click)="buttonD()">My Ghost Hunts</button><br/>
+  <p class="userinfo">You are located in: </p>
+  <p class="userinfo">{{ user.location }}</p>
+  <hr />
+  <button class="button" mat-raised-button color="maroon" (click)="buttonA()">My Haunted Locations</button><br />
+  <button class="button" mat-raised-button color="maroon" (click)="buttonB()">My Personal Stories</button><br />
+  <button class="button" mat-raised-button color="maroon" (click)="buttonC()">My Urban Legends</button><br />
+  <button class="button" mat-raised-button color="maroon" (click)="buttonD()">My Ghost Hunts</button><br />
 
 
   <!-- <mat-form-field>
@@ -22,15 +24,20 @@
 
 <div class="posts" id="style-2">
   <div *ngFor="let haunted of locations">
-
+      <mat-card class="example-card"> 
     <p class="title" *ngIf="haunted.location">{{haunted.location}}</p>
     <p class="title" *ngIf="haunted.title">{{haunted.title}}</p>
     <img *ngIf="haunted.img" src="{{haunted.img}}" alt="location img" class="img" />
+    <agm-map *ngIf="haunted.latitude" [latitude]='latitude' [longitude]='longitude'>
+      <agm-marker [latitude]='haunted.latitude' [longitude]='haunted.longitude'></agm-marker>
+    </agm-map>
     <!-- <p>{{location.img}}</p> -->
-    <p>{{haunted.description}}</p>
-    <p>{{haunted.tag}}</p>
-    <p>Created by: {{haunted.name}}</p>
-    <br/>
+    <p class="des">{{haunted.description}}</p>
+    <p class="tag">{{haunted.tag}}</p>
+    <p class="name">Created by: {{haunted.name}}</p>
+    <br />
+    </mat-card>
+
   </div>
 
 </div>

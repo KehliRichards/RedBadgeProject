@@ -24,7 +24,7 @@ export class MyDialogComponent implements OnInit {
   ngOnInit() {
     this.createStory =this.fb.group({
       title: new FormControl(),
-      time:new FormControl(),
+      // time:new FormControl(),
       date:new FormControl(),
       img:new FormControl(),
       description:new FormControl(),

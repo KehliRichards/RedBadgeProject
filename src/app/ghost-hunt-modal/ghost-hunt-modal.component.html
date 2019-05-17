@@ -4,7 +4,7 @@
   <h2 mat-dialog-title>Ghost Hunting? Fill out your info below!</h2>
 
   <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChosenLocation($event)">
-    <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+    <agm-marker [latitude]="clickedLatitude" [longitude]="clickedLongitude" *ngIf="locationChosen"></agm-marker>
   </agm-map>
 
   <label for="tag">Tag:</label>

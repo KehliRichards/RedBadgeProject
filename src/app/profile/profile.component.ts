@@ -14,6 +14,9 @@ export class ProfileComponent implements OnInit {
   locations = []
   user = [];
 
+  latitude = 39.690617;
+  longitude = -86.173619;
+
   constructor(private sService: StoriesService, private aService: AuthService, private lService: HuntLocationService) { }
 
   ngOnInit() {

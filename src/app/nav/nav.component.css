@@ -9,11 +9,15 @@
     text-align: center;
     align-items: center;
     box-shadow: 0 0 1vmax maroon;
-    transition: top 0.4s;
+    transition: top 0.65s;
 }
 
 .header-profile {
     top: -24.75vh;
+}
+
+.header-scroll {
+    top: -34vh;
 }
 
 nav a {

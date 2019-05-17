@@ -25,7 +25,7 @@ export class UpdateModalComponent implements OnInit {
   ngOnInit() {
     this.updateStory =this.fb.group({
       title: new FormControl(this.data.title),
-      time:new FormControl(this.data.time),
+      // time:new FormControl(this.data.time),
       date:new FormControl(this.data.date),
       img:new FormControl(this.data.img),
       description:new FormControl(this.data.description),

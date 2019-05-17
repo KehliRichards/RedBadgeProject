@@ -1,21 +1,54 @@
-<div class="ghost"></div>
+<!-- <div class="ghost"></div>
 <div class="card">
   <h1>Ghost Hunts</h1>
-  <!-- <app-ghost-hunt-modal></app-ghost-hunt-modal> -->
+
   <div *ngIf="ghosthunts">
     <button mat-raised-button (click)="openDialog()">Create a Post</button></div>
 
 
   <div *ngFor="let hunt of ghosthunts">
 
+    <agm-map [latitude]='latitude' [longitude]='longitude'>
+      <agm-marker [latitude]='hunt.latitude' [longitude]='hunt.longitude'></agm-marker>
+    </agm-map>
+
     <p>{{hunt.tag}}</p>
     <p>{{hunt.location}}</p>
     <p>{{hunt.time}}</p>
-    <p>{{hunt.date}}</p>
+    <p>{{hunt.date | date}}</p>
     <p>{{hunt.description}}</p>
     <p>Created by: {{hunt.name}}</p>
     <button *ngIf="isAdmin" (click)="adminDelete(hunt.id)">Delete</button>
     <button *ngIf="userId === hunt.userId && isAdmin === false" (click)="deleteGhostHunt(hunt.id)">Delete Post</button>
     <button *ngIf="userId === hunt.userId" (click)="openDialog1(hunt)">Edit Post</button>
+  </div>
+</div> -->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="ghost"> </div>
+<div class="card">
+  <p class="header">Ghost Hunts</p>
+  <button mat-raised-button (click)="openDialog()" class="button" id="create">Create a Post</button>
+  <div *ngFor="let hunt of ghosthunts">
+    <mat-card class="example-card">
+      <p class="title">{{hunt.location}}</p>
+          <p class="time"> Time: {{hunt.time}} </p>
+          <p class="date">Date: {{hunt.date | date}}</p>
+        <agm-map [latitude]='latitude' [longitude]='longitude'>
+          <agm-marker [latitude]='hunt.latitude' [longitude]='hunt.longitude'></agm-marker>
+        </agm-map>
+        <mat-card-content>
+        <!-- <p class="time"> Time: {{hunt.time}} </p>
+        <p class="date">Date: {{hunt.date | date}}</p> -->
+        <p class="des">{{hunt.description}}</p>
+        <p class="tag">{{hunt.tag}}</p>
+        <p class="name"> Created by: {{hunt.name}} </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button *ngIf="isAdmin" (click)="adminDelete(hunt.id)" class="button"><mat-icon>delete</mat-icon></button>
+        <button mat-button *ngIf="userId === hunt.userId && isAdmin === false" (click)="deleteGhostHunt(hunt.id)" class="button"><mat-icon>delete</mat-icon></button>
+        <button mat-button *ngIf="userId === hunt.userId" (click)="openDialog1(hunt)" class="button"><mat-icon>edit</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>

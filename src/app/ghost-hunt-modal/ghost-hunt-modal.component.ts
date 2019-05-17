@@ -11,11 +11,22 @@ import { MatDialogRef } from '@angular/material';
 })
 export class GhostHuntModalComponent implements OnInit {
 
+  // currentTime = '';
+
+  objectArray = [];
+  obj = {};
+
   createForm: FormGroup;
   posts = [];
   latitude = 39.690617;
   longitude = -86.173619;
   locationChosen = false;
+
+  clickedLatitude = null;
+  clickedLongitude = null;
+
+  chosenLatitude = ['latitude'];
+  chosenLongitude = ['longitude'];
 
   tags = [
     'Haunted Locations',
@@ -26,9 +37,12 @@ export class GhostHuntModalComponent implements OnInit {
 
   onChosenLocation(event) {
     console.log(event);
-    this.latitude = event.coords.lat;
-    this.longitude = event.coords.lng;
+    this.clickedLatitude = event.coords.lat;
+    this.clickedLongitude = event.coords.lng;
+    this.chosenLatitude.push(event.coords.lat);
+    this.chosenLongitude.push(event.coords.lng);
     this.locationChosen = true;
+    console.log(this.chosenLatitude);
   }
 
   constructor(private fb: FormBuilder, private dbService: HuntLocationService, public DialogRef: MatDialogRef<GhostHuntModalComponent>
@@ -36,6 +50,9 @@ export class GhostHuntModalComponent implements OnInit {
 
 
   ngOnInit() {
+    // let today = new Date();
+    // this.currentTime  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
     this.createForm = this.fb.group({
       tag: new FormControl(),
       location: new FormControl(),
@@ -43,20 +60,31 @@ export class GhostHuntModalComponent implements OnInit {
       date: new FormControl(),
       description: new FormControl()
     })
-
   }
+
 
   onCreateForm(event): void {
     event.preventDefault();
-    console.log(this.createForm.value);
-    this.posts.unshift(this.createForm.value)
-    this.dbService.createPost(this.createForm.value).subscribe(Posts => this.posts[0] = Posts);
+    this.objectArray = Object.entries(this.createForm.value);
+    this.objectArray.push(this.chosenLatitude, this.chosenLongitude);
+
+    let object = {};
+    this.objectArray.forEach(function (data) {
+      object[data[0]] = data[1]
+    });
+    this.obj = object;
+
+    this.posts.unshift(this.obj)
+    this.dbService.createPost(this.obj).subscribe(Posts => this.posts[0] = Posts);
     this.closeDialog();
-    // location.reload()
   }
+
+
 
   closeDialog() {
     this.DialogRef.close()
+    this.chosenLatitude = ['latitude'];
+    this.chosenLongitude = ['longitude'];
   }
 
 }

@@ -3,6 +3,10 @@
 
   <h2 mat-dialog-title>Edit your post here</h2>
 
+  <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChosenLocation($event)">
+    <agm-marker [latitude]="clickedLatitude" [longitude]="clickedLongitude"></agm-marker>
+  </agm-map>
+
   <label for="tag">Tag:</label>
   <select formControlName="tag" name="tags">
     <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>

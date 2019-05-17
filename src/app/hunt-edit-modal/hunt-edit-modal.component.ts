@@ -11,8 +11,21 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class HuntEditModalComponent implements OnInit {
 
+  objectArray = [];
+  obj = {};
+
   editForm: FormGroup;
   posts = [];
+  
+  latitude = 39.690617;
+  longitude = -86.173619;
+  locationChosen = false;
+
+  clickedLatitude = this.data.longitude;
+  clickedLongitude = this.data.longitude;
+
+  chosenLatitude = ['latitude'];
+  chosenLongitude = ['longitude'];
 
   tags = [
     'Haunted Locations',
@@ -20,6 +33,16 @@ export class HuntEditModalComponent implements OnInit {
     'Urban Legends',
     'Ghost Hunts'
   ];
+
+  onChosenLocation(event) {
+    console.log(event);
+    this.clickedLatitude = event.coords.lat;
+    this.clickedLongitude = event.coords.lng;
+    this.chosenLatitude.push(event.coords.lat);
+    this.chosenLongitude.push(event.coords.lng);
+    this.locationChosen = true;
+    console.log(this.chosenLatitude);
+  }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private dbService: HuntLocationService, public DialogRef: MatDialogRef<HuntEditModalComponent>
   ) { }
@@ -37,11 +60,20 @@ export class HuntEditModalComponent implements OnInit {
   }
 
   onEditForm(event): void {
-    console.log(this.data);
     event.preventDefault();
-    console.log(this.editForm.value);
-    this.posts.unshift(this.editForm.value)
-    this.dbService.editPost(this.editForm.value, this.data.id).subscribe(Posts => this.posts[0] = Posts);
+ 
+    this.objectArray = Object.entries(this.editForm.value);
+    this.objectArray.push(this.chosenLatitude, this.chosenLongitude);
+
+    let object = {};
+    this.objectArray.forEach(function (data) {
+      object[data[0]] = data[1]
+    });
+    this.obj = object;
+
+    console.log(this.obj);
+    this.posts.unshift(this.obj)
+    this.dbService.editPost(this.obj, this.data.id).subscribe(Posts => this.posts[0] = Posts);
     this.closeDialog();
   }
 
