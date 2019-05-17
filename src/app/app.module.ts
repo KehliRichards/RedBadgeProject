@@ -67,7 +67,7 @@ import { UpdateModalComponent } from './updatemodal/updatemodal.component';
     MatIconModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBOxufilZizAdak2M71czQBRJW-X9M7bP0'
-    })
+    }),
   ],
   // exports: [
   //   MatDatepickerModule

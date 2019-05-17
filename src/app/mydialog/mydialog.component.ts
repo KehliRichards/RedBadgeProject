@@ -14,10 +14,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class MyDialogComponent implements OnInit {
   createStory: FormGroup;
   stories= [];
-  tag=[{value: 'Personal Stories'},
-        {value: 'Urban Legends'},
-        {value: 'Ghost hunts'},
-        {value: 'Haunted Locations'}]
+  tag=['Haunted Locations',
+  'Personal Stories',
+  'Urban Legends',
+  'Ghost Hunts']
 
   constructor( private fb: FormBuilder, private storyService: StoriesService, public dialog: MatDialogRef<any> ) { }
 

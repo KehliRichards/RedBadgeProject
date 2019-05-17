@@ -1,34 +1,38 @@
-<form [formGroup] ="updateStory" (ngSubmit) ="onUpdateStory()">
+<form [formGroup]="updateStory" (ngSubmit)="onUpdateStory()">
   <h2>Update Your Post</h2>
   <label for="title">Title: </label>
-  <input formControlName = "title" type="text" name="title" required >
+  <input formControlName="title" type="text" name="title" required>
   <br>
   <!-- <br>
   <label for="time">Time: </label>
   <input formControlName= "time" type="text" name="time" >
   <br> -->
   
+  <!-- <h1>Hello</h1> -->
+
   <br>
   <label for="date">Date: </label>
-  <input formControlName ="date" type="text" name="date">
+  <input formControlName="date" type="text" name="date">
   <br>
-  
+
   <br>
   <label for="img">Image</label>
-  <input formControlName ="img" type="url" name="img">
+  <input formControlName="img" type="img" name="img">
   <br>
-  
+
   <br>
   <label for="description">Description: </label>
-  <input formControlName ="description" type="text" name="description">
+  <input formControlName="description" type="text" name="description">
   <br>
-  
+
   <br>
   <label for="tag">Tag: </label>
-  <select formControlName = "tag" name="tag" required>
-      <option *ngFor="let t of tag" value="{{t.value}}">{{t.value}}</option>
+  <select formControlName="tag" name="tag" required>
+    <option *ngFor="let t of tag" value="{{t}}">{{t}}</option>
   </select>
-  
-  
-  <button type="submit">Update</button>
-  </form>
+
+  <mat-dialog-actions>
+    <button mat-button mat-raised-button type="submit" class="button">Update</button>
+    <button class="button" mat-raised-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

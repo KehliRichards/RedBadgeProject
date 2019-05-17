@@ -14,10 +14,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class UpdateModalComponent implements OnInit {
   updateStory: FormGroup;
   stories= [];
-  tag=[{value: 'Personal Stories'},
-        {value: 'Urban Legends'},
-        {value: 'Ghost hunts'},
-        {value: 'Haunted Locations'}]
+  legend=[];
+  tag=['Haunted Locations',
+  'Personal Stories',
+  'Urban Legends',
+  'Ghost Hunts']
 
 
   constructor( @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private storyService: StoriesService, public dialog: MatDialogRef<any>) { }
@@ -44,6 +45,8 @@ export class UpdateModalComponent implements OnInit {
     this.stories.unshift(this.updateStory.value)
     this.storyService.updateStory(this.updateStory.value, this.data.id).subscribe(Story => this.stories[0] = Story)
     this.closeDialog();
+    this.legend.reverse();
+    this.stories.reverse();
 
     
    }

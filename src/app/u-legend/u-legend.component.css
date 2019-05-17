@@ -6,7 +6,6 @@
     background-repeat: no-repeat;
     margin: 17vh auto;
 }
-
 .card {
     padding-top: 1vh;
     z-index: 1;
@@ -67,5 +66,6 @@
 }
 
   .img {
+    max-width: 65vw;
     box-shadow: 0 0 1vmax black;
   }

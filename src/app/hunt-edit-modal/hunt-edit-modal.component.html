@@ -39,6 +39,12 @@
 
   <br />
 
+  <label for="tag">Tag:</label>
+  <select formControlName="tag" name="tags">
+    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
+  </select>
+  <br />
+
   <mat-dialog-actions>
     <button type="submit" mat-raised-button>Create</button>
     <button mat-raised-button mat-dialog-close>Cancel</button>

@@ -46,10 +46,12 @@ export class PsnlStoriesComponent implements OnInit {
     this.postInfo = id
     const update = this.update.open(UpdateModalComponent, {
       data: this.postInfo
+
     })
 
     update.afterClosed().subscribe(result => {
       this.getStory()
+  
     })
   }
 

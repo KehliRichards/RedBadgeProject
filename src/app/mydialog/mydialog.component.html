@@ -8,27 +8,30 @@
 <input formControlName= "time" type="text" name="time" >
 <br> -->
 
-<br>
-<label for="date">Date: </label>
-<input formControlName ="date" type="text" name="date" >
-<br>
 
-<br>
-<label for="img">Image</label>
-<input formControlName ="img" type="url" name="img">
-<br>
+    <br>
+    <label for="date">Date: </label>
+    <input formControlName="date" type="text" name="date">
+    <br>
 
-<br>
-<label for="description">Description: </label>
-<input formControlName ="description" type="text" name="description">
-<br>
+    <br>
+    <label for="img">Image: </label>
+    <input formControlName="img" type="img" name="img" width="10" height="20">
+    <br>
 
-<br>
-<label for="tag">Tag: </label>
-<select formControlName = "tag" name="tag" required>
-    <option *ngFor="let t of tag" value="{{t.value}}">{{t.value}}</option>
-</select>
+    <br>
+    <label for="description">Description: </label>
+    <input formControlName="description" type="text" name="description">
+    <br>
 
+    <br>
+    <label for="tag">Tag: </label>
+    <select formControlName="tag" name="tag" required>
+        <option *ngFor="let t of tag" value="{{t}}">{{t}}</option>
+    </select>
 
-<button type="submit">Submit</button>
+    <mat-dialog-actions>
+        <button mat-raised-button type="submit" class="button">Create</button>
+        <button mat-raised-button mat-dialog-close class="button">Cancel</button>
+    </mat-dialog-actions>
 </form>

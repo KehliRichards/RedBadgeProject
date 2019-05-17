@@ -25,6 +25,7 @@ export class LocationEditModalComponent implements OnInit {
 
   ngOnInit() {
     this.editForm = this.fb.group({
+      title: new FormControl(this.data.title),
       tag: new FormControl(this.data.tag),
       img: new FormControl(this.data.img),
       location: new FormControl(this.data.location),
