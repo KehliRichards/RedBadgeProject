@@ -3,11 +3,6 @@
 
   <h2 mat-dialog-title>Edit your post here</h2>
 
-  <label for="tag">Tag:</label>
-  <select formControlName="tag" name="tags">
-    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
-  </select>
-
   <br />
 
   <label class="text" for="location">Location:</label>
@@ -33,6 +28,12 @@
   <label class="text" for="description">Details:</label>
   <input formControlName="description" class="input" type="text" name="description" />
 
+  <br />
+
+  <label for="tag">Tag:</label>
+  <select formControlName="tag" name="tags">
+    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
+  </select>
   <br />
 
   <mat-dialog-actions>

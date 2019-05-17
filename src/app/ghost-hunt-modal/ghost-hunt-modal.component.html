@@ -7,11 +7,6 @@
     <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
   </agm-map>
 
-  <label for="tag">Tag:</label>
-  <select formControlName="tag" name="tags">
-    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
-  </select>
-
   <br />
 
   <label class="text" for="location">Location:</label>
@@ -25,7 +20,7 @@
   <br />
 
   <!-- <label class="text" for="date">Date:</label>
-  <input formControlName="date" class="input" type="text" name="date" /> -->
+    <input formControlName="date" class="input" type="text" name="date" /> -->
 
   <mat-form-field>
     <mat-label for="date">Date:</mat-label>
@@ -39,6 +34,12 @@
   <label class="text" for="description">Details:</label>
   <input formControlName="description" class="input" type="text" name="description" />
 
+  <br />
+
+  <label for="tag">Tag:</label>
+  <select formControlName="tag" name="tags">
+    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
+  </select>
   <br />
 
   <mat-dialog-actions>

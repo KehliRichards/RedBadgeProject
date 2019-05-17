@@ -55,6 +55,7 @@ export class GhostHuntModalComponent implements OnInit {
     // location.reload()
   }
 
+
   closeDialog() {
     this.DialogRef.close()
   }

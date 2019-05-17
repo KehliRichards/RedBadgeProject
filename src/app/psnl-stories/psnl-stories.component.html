@@ -1,20 +1,31 @@
-  <div class="ghost"> </div>
-  <div class="card">
-  <h1>Stories</h1>
-  <button mat-raised-button (click)="openDialog()"> Create</button>
-     <div *ngFor= "let story of stories">
-      <h1><em>{{story.title}}</em></h1>
-      <h3> {{story.time}} </h3>
-      <p>{{ story.date}}</p>
-     <img src="{{story.img}}" />
-      <p>{{story.description}}</p>
-      <p>{{story.tag}}</p>
-      <p> Created by: {{story.name}} </p>
-      <button *ngIf="isAdmin" (click)="adminDelete(story.id)">Delete</button>
-      <button *ngIf="userId === story.userId && isAdmin === false" (click)="deleteStory(story.id)">Delete</button>
-      <button *ngIf="userId === story.userId" (click) ="updateDialog(story)">Update</button>
-     </div>
-    </div>
-
-
- 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="ghost"> </div>
+<div class="card">
+  <p class="header">Personal Stories</p>
+  <button mat-raised-button (click)="openDialog()" class="button" id="create">Create a Post</button>
+  <div *ngFor="let story of stories">
+    <mat-card class="example-card">
+      <p class="title">{{story.title}} </p>
+      <mat-card-content>
+        <p class="time"> Time: {{story.time}} </p>
+        <p class="date">Date: {{story.date}}</p>
+        <img class="img" src="{{story.img}}" />
+        <p class="des">{{story.description}}</p>
+        <p class="tag">{{story.tag}}</p>
+        <p class="name"> Created by: {{story.name}} </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button *ngIf="isAdmin" (click)="adminDelete(story.id)" class="button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button *ngIf="userId === story.userId && isAdmin === false" (click)="deleteStory(story.id)"
+          class="button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button *ngIf="userId === story.userId" (click)="updateDialog(story)" class="button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

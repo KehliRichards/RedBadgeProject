@@ -1,34 +1,36 @@
-<form [formGroup] ="createStory" (ngSubmit) ="onCreateStory()">
-<h2>Upload a story!</h2>
-<label for="title">Title: </label>
-<input formControlName = "title" type="text" name="title" required >
-<br>
-<br>
-<label for="time">Time: </label>
-<input formControlName= "time" type="text" name="time" >
-<br>
+<form [formGroup]="createStory" (ngSubmit)="onCreateStory()">
+    <h2>Upload a story!</h2>
+    <label for="title">Title: </label>
+    <input formControlName="title" type="text" name="title" required>
+    <br>
+    <br>
+    <label for="time">Time: </label>
+    <input formControlName="time" type="text" name="time">
+    <br>
 
-<br>
-<label for="date">Date: </label>
-<input formControlName ="date" type="text" name="date" >
-<br>
+    <br>
+    <label for="date">Date: </label>
+    <input formControlName="date" type="text" name="date">
+    <br>
 
-<br>
-<label for="img">Image</label>
-<input formControlName ="img" type="url" name="img">
-<br>
+    <br>
+    <label for="img">Image</label>
+    <input formControlName="img" type="url" name="img">
+    <br>
 
-<br>
-<label for="description">Description: </label>
-<input formControlName ="description" type="text" name="description">
-<br>
+    <br>
+    <label for="description">Description: </label>
+    <input formControlName="description" type="text" name="description">
+    <br>
 
-<br>
-<label for="tag">Tag: </label>
-<select formControlName = "tag" name="tag" required>
-    <option *ngFor="let t of tag" value="{{t.value}}">{{t.value}}</option>
-</select>
+    <br>
+    <label for="tag">Tag: </label>
+    <select formControlName="tag" name="tag" required>
+        <option *ngFor="let t of tag" value="{{t.value}}">{{t.value}}</option>
+    </select>
 
-
-<button type="submit">Submit</button>
+    <mat-dialog-actions>
+        <button mat-raised-button type="submit" class="button">Create</button>
+        <button mat-raised-button mat-dialog-close class="button">Cancel</button>
+    </mat-dialog-actions>
 </form>

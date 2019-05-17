@@ -24,6 +24,7 @@ export class HauntedLocationsModalComponent implements OnInit {
 
   ngOnInit() {
     this.createForm = this.fb.group({
+
       tag: new FormControl(),
       img: new FormControl(),
       location: new FormControl(),

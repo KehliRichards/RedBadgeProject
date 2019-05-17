@@ -1,19 +1,31 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="ghost"> </div>
 <div class="card">
-  <h1>Legends</h1>
-  <button mat-raised-button (click)="openDialog()"> Create</button>
-  <div  *ngFor= "let legend of legend">
-  <h1><em>{{legend.title}}</em></h1>
-  <h3> {{legend.time}} </h3>
-  <p>{{legend.date}}</p>
-  <img src="{{legend.img}}" />
-  <p>{{legend.description}}</p>
-  <p>{{legend.tag}}</p>
-  <p> Created by: {{legend.name}} </p>
-  <button *ngIf="isAdmin" (click)="adminDelete(legend.id)">Delete</button>
-  <button *ngIf="userId === legend.userId && isAdmin === false" (click)="deleteLegend(legend.id)">Delete</button>
-  <button *ngIf="userId === legend.userId" (click)="updateDialog(legend)">Update</button>
+  <p class="header">Urban Legends</p>
+  <button mat-raised-button (click)="openDialog()" class="button" id="create">Create a Post</button>
+  <div *ngFor="let legend of legend">
+    <mat-card class="example-card">
+      <p class="title">{{legend.title}} </p>
+      <mat-card-content>
+        <p class="time"> Time: {{legend.time}} </p>
+        <p class="date">Date: {{legend.date}}</p>
+        <img class="img" src="{{legend.img}}" />
+        <p class="des">{{legend.description}}</p>
+        <p class="tag">{{legend.tag}}</p>
+        <p class="name"> Created by: {{legend.name}} </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button *ngIf="isAdmin" (click)="adminDelete(legend.id)" class="button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button *ngIf="userId === legend.userId && isAdmin === false" (click)="deleteLegend(legend.id)"
+          class="button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button *ngIf="userId === legend.userId" (click)="updateDialog(legend)" class="button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
-
 </div>
-

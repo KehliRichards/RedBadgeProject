@@ -6,11 +6,60 @@
     background-repeat: no-repeat;
     margin: 17vh auto;
 }
-
 .card {
+    padding-top: 1vh;
     z-index: 1;
     background: rgb(31, 31, 31);
     margin: -14.5vh auto;
     width: 80vw;
-    height: 350vh;
+    height: 100%;
 }
+.header {
+    font-size: 5vmax;
+    margin-left: 2.75vw;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+#create {
+    margin-left: 3vw;
+    font-family: 'Special Elite', cursive;
+}
+.example-card {
+    box-shadow: 0 0 1vmax black;
+    border-radius: 1vmax;
+    width: 68vw;
+    margin: 15vh auto;
+    margin-top: 5vh;
+    text-align: center;
+    padding: 3em;
+    padding-top: 2.5vh;
+    font-family: 'Special Elite', cursive;
+  }
+  .button{
+      background-color:maroon;
+  }
+  .title {
+      font-family: Alice, serif;
+      margin: 1vh auto;
+      max-width: 60vw;
+      font-size: 6vmax;
+      margin-bottom: 0vh;
+      margin-top: 1vh;
+  }
+  .time,
+  .date,
+  .des,
+  .name,
+  .tag {
+    margin: 2vh auto;
+    max-width: 65vw;
+    font-size: 1.25vmax;
+  }
+  .des {
+    margin-top: 3vh;
+    text-align: justify;
+}
+  .img {
+    max-width: 65vw;
+    box-shadow: 0 0 1vmax black;
+  }

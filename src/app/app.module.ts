@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { AgmCoreModule } from '@agm/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +65,8 @@ import { UpdateModalComponent } from './updatemodal/updatemodal.component';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
+    MatIconModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBOxufilZizAdak2M71czQBRJW-X9M7bP0'
     })
