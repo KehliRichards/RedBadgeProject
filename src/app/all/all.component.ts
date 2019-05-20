@@ -24,6 +24,9 @@ export class AllComponent implements OnInit {
   dParsedSL: number = null;
   dParsedHL: number = null;
 
+  latitude = 39.690617;
+  longitude = -86.173619;
+
 
   constructor(private hService: HuntLocationService, private sService: StoriesService) { }
 

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatIconModule, MatSelectModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { AgmCoreModule } from '@agm/core';
 
@@ -65,6 +65,7 @@ import { UpdateModalComponent } from './updatemodal/updatemodal.component';
     MatNativeDateModule,
     MatCardModule,
     MatIconModule,
+    MatSelectModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBOxufilZizAdak2M71czQBRJW-X9M7bP0'
     }),

@@ -1,35 +1,45 @@
 <form [formGroup]="createForm" (ngSubmit)="onCreateForm($event)">
 
 
-  <h2>Post a Haunted Location in Indiana</h2>
+  <h2 class="header">Post a Haunted Location in Indiana</h2>
 
 
 
-  <label class="text" for="img">Image:</label>
-  <input formControlName="img" class="input" type="url" name="img" />
+  <mat-form-field color="warn" appearance="outline" class="outline" for="img">
+    <mat-label class="label">Image</mat-label>
+    <input class="input" formControlName="img" type="text" name="img" matInput placeholder="Enter an image url">
+  </mat-form-field>
 
   <br />
+
+
+  <br />
+  <mat-form-field color="warn" appearance="outline" class="outline" for="location">
+    <mat-label class="label">Location</mat-label>
+    <input class="input" formControlName="location" type="text" name="location" matInput placeholder="Enter a location">
+  </mat-form-field>
+
+  <br />
+
+
+  <br />
+  <mat-form-field color="warn" appearance="outline" class="outline des" for="description">
+    <mat-label class="label">Description</mat-label>
+    <textarea class="input des" id="des" formControlName="description" type="text" name="description" matInput
+      placeholder="Enter a description"></textarea>
+  </mat-form-field>
+  <br />
+  <br />
+  <br/>
+  <br />
+  <mat-form-field color="warn" appearance="outline" class="outline" for="tag">
+    <mat-label class="label">Tag</mat-label>
+    <mat-select class="select" formControlName="tag" name="tags">
+      <mat-option *ngFor="let t of tags" [value]="t">{{t}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <br>
-
-  <br />
-  <label class="text" for="location">Location:</label>
-  <input formControlName="location" class="input" type="text" name="location" />
-
-  <br />
-  <br>
-
-  <br />
-  <label class="text" for="description">Details:</label>
-  <input formControlName="description" class="input" type="text" name="description" />
-
-  <br />
-  <br>
-  <label for="tag">Tag:</label>
-  <select formControlName="tag" name="tags">
-    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
-  </select>
-
-  <br><br>
 
   <mat-dialog-actions>
     <button type="submit" mat-raised-button class="button">Create</button>

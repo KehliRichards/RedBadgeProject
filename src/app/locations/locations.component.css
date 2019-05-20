@@ -59,6 +59,7 @@
   .des {
     margin-top: 3vh;
     text-align: justify;
+    white-space: pre-wrap;
 }
   .img {
     max-width: 65vw;

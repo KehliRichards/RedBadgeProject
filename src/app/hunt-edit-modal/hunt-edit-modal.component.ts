@@ -52,7 +52,7 @@ export class HuntEditModalComponent implements OnInit {
     this.editForm = this.fb.group({
       tag: new FormControl(this.data.tag),
       location: new FormControl(this.data.location),
-      time: new FormControl(this.data.time),
+      // time: new FormControl(this.data.time),
       date: new FormControl(this.data.date),
       description: new FormControl(this.data.description)
     })

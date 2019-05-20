@@ -14,7 +14,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class MyDialogComponent implements OnInit {
   createStory: FormGroup;
   stories= [];
-  tag=['Haunted Locations',
+  public tag=['Haunted Locations',
   'Personal Stories',
   'Urban Legends',
   'Ghost Hunts']
