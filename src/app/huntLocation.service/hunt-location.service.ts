@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { APIURL } from '../../environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,7 @@ const httpOptions = {
 })
 export class HuntLocationService {
   public id = '';
-  private dbUrl = 'http://localhost:3000/huntlocations';
+  private dbUrl = `${APIURL}/huntlocations`;
 
   constructor(private http: HttpClient) { }
 

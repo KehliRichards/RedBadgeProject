@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIURL } from '../../environments/environment.prod';
 
 
 const httpOptions = {
@@ -22,9 +23,9 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private signupUrl = "http://localhost:3000/user/signup"
-  private signinUrl = "http://localhost:3000/user/signin"
-  private userUrl = "http://localhost:3000/user/currentuser"
+  private signupUrl = `${APIURL}/user/signup`
+  private signinUrl = `${APIURL}/user/signin`
+  private userUrl = `${APIURL}/user/currentuser`
 
   constructor(private http: HttpClient) { }
 
