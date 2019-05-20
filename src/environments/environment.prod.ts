@@ -5,7 +5,7 @@ export const environment = {
 export let APIURL = '';
 
 switch (window.location.hostname) {
-  // this is the deployed angular application
+  
   case 'sits-rbproject.herokuapp.com':
       // this is the full url of your deployed API
       APIURL = 'https://sits-rbproject.herokuapp.com'
