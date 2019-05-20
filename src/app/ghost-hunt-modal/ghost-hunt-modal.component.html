@@ -1,7 +1,7 @@
-<form [formGroup]="createForm" (ngSubmit)="onCreateForm($event)">
+<form class="form" [formGroup]="createForm" (ngSubmit)="onCreateForm($event)">
 
 
-  <h2 mat-dialog-title>Ghost Hunting? Fill out your info below!</h2>
+  <h2 class="header" mat-dialog-title>Ghost Hunting? Fill out your info below!</h2>
 
   <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChosenLocation($event)">
     <agm-marker [latitude]="clickedLatitude" [longitude]="clickedLongitude" *ngIf="locationChosen"></agm-marker>
@@ -10,38 +10,43 @@
   <br />
 
   <br />
-  <label class="text" for="location">Location:</label>
-  <input formControlName="location" class="input" type="text" name="location" />
+  <mat-form-field color="warn" appearance="outline" class="outline" for="location">
+    <mat-label class="label">Location</mat-label>
+    <input class="input" formControlName="location" type="text" name="location" matInput placeholder="Enter a location">
+  </mat-form-field>
 
   <br />
 
-  <br />
-  <label class="text" for="time">Time:</label>
-  <input formControlName="time" class="input" type="text" name="time" />
-
-  <br />
   <br />
   <!-- <label class="text" for="date">Date:</label>
     <input formControlName="date" class="input" type="text" name="date" /> -->
 
-  <mat-form-field>
-    <mat-label for="date">Date:</mat-label>
+  <mat-form-field color="warn" class="outline" appearance="outline">
+    <mat-label for="date">Date:</mat-label><br />
     <input formControlName="date" name="date" matInput [matDatepicker]="myDatePicker">
     <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
     <mat-datepicker #myDatePicker></mat-datepicker>
   </mat-form-field>
 
   <br />
-
-  <label class="text" for="description">Details:</label>
-  <input formControlName="description" class="input" type="text" name="description" />
-
   <br />
 
-  <label for="tag">Tag:</label>
-  <select formControlName="tag" name="tags">
-    <option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</option>
-  </select>
+  <mat-form-field color="warn" appearance="outline" class="outline des" for="description">
+    <mat-label class="label">Description</mat-label>
+    <textarea class="input des" formControlName="description" type="text" name="description" matInput
+      placeholder="Enter a description"></textarea>
+  </mat-form-field>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <mat-form-field color="warn" appearance="outline" class="outline" for="tag">
+    <mat-label class="label">Tag</mat-label>
+    <mat-select class="select" formControlName="tag" name="tags">
+      <mat-option *ngFor="let tag of tags" value="{{tag}}">{{tag}}</mat-option>
+    </mat-select>
+  </mat-form-field>
   <br />
 
   <mat-dialog-actions>

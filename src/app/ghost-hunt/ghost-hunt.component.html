@@ -6,7 +6,6 @@
   <div *ngFor="let hunt of ghosthunts">
     <mat-card class="example-card">
       <p class="title">{{hunt.location}}</p>
-          <p class="time"> Time: {{hunt.time}} </p>
           <p class="date">Date: {{hunt.date | date}}</p>
         <agm-map [latitude]='latitude' [longitude]='longitude'>
           <agm-marker [latitude]='hunt.latitude' [longitude]='hunt.longitude'></agm-marker>

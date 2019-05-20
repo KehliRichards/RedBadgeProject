@@ -1,38 +1,47 @@
-<form [formGroup]="updateStory" (ngSubmit)="onUpdateStory()">
-  <h2>Update Your Post</h2>
-  <label for="title">Title: </label>
-  <input formControlName="title" type="text" name="title" required>
-  <br>
-  <!-- <br>
-  <label for="time">Time: </label>
-  <input formControlName= "time" type="text" name="time" >
-  <br> -->
-  
-  <!-- <h1>Hello</h1> -->
+<form class="form" [formGroup]="updateStory" (ngSubmit)="onUpdateStory()">
+  <p class="header">Update Your Post</p>
+
+  <mat-form-field color="warn" appearance="outline" class="outline" for="title">
+    <mat-label class="label">Title</mat-label>
+    <input class="input" formControlName="title" type="text" name="title" matInput placeholder="Enter a title">
+  </mat-form-field>
+
 
   <br>
-  <label for="date">Date: </label>
-  <input formControlName="date" type="text" name="date">
-  <br>
-
-  <br>
-  <label for="img">Image</label>
-  <input formControlName="img" type="img" name="img">
+  <mat-form-field color="warn" class="outline" appearance="outline">
+    <mat-label for="date">Date:</mat-label><br />
+    <input formControlName="date" name="date" matInput [matDatepicker]="myDatePicker">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+  </mat-form-field>
   <br>
 
   <br>
-  <label for="description">Description: </label>
-  <input formControlName="description" type="text" name="description">
+  <mat-form-field color="warn" appearance="outline" class="outline" for="img">
+    <mat-label class="label">Image</mat-label>
+    <input class="input" formControlName="img" type="text" name="img" matInput placeholder="Enter an image url">
+  </mat-form-field>
   <br>
 
   <br>
-  <label for="tag">Tag: </label>
-  <select formControlName="tag" name="tag" required>
-    <option *ngFor="let t of tag" value="{{t}}">{{t}}</option>
-  </select>
+  <mat-form-field color="warn" appearance="outline" class="outline des" for="description">
+    <mat-label class="label">Description</mat-label>
+    <textarea class="input des" formControlName="description" type="text" name="description" matInput
+      placeholder="Enter a description"></textarea>
+  </mat-form-field>
+  <br>
+  <br />
+  <br />
+  <br>
+  <mat-form-field color="warn" appearance="outline" class="outline" for="tag">
+    <mat-label class="label">Tag</mat-label>
+    <mat-select class="select" formControlName="tag" name="tag">
+      <mat-option *ngFor="let t of tag" [value]="t">{{t}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <mat-dialog-actions>
-    <button mat-button mat-raised-button type="submit" class="button">Update</button>
-    <button class="button" mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button type="submit" class="button">Create</button>
+    <button mat-raised-button mat-dialog-close class="button">Cancel</button>
   </mat-dialog-actions>
 </form>

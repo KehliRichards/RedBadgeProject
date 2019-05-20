@@ -65,6 +65,7 @@
   .des {
     top: 105vh;
     text-align: justify;
+    white-space: pre-wrap;
 }
 
   /* .img {

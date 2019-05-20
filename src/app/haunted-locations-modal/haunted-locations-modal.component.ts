@@ -33,8 +33,8 @@ export class HauntedLocationsModalComponent implements OnInit {
   }
 
   onCreateForm(event): void {
-    event.preventDefault();
-    console.log(this.createForm.value);
+    event.preventDefault(); //.replace('\n','<br />')
+    console.log(this.createForm.value.description);
     this.posts.unshift(this.createForm.value)
     this.dbService.createPost(this.createForm.value).subscribe(Posts => this.posts[0] = Posts);
     this.closeDialog();

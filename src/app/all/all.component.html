@@ -1,17 +1,29 @@
 <div class="ghost"></div>
 <div class="card">
   <p class="welcome">Welcome to Something in the Shadows!</p>
+<<<<<<< HEAD
   <p class="about">Welcome to Something in the Shadows! This is a website dedicated to those living in or visiting the
     state of
     Indiana with a curiosity for the supernatural. When visiting, one can find various haunted locations throughout
     Indiana, share scary personal stories, read about urban legends, and set up meet times to go ghost hunting. While
     visiting, please be respectful to those with an affinity to the paranormal. Happy hunting! </p>
   <!-- <hr/> -->
+=======
+  <hr/>
+  <p class="about">This is a website dedicated to those living in or visiting the state of Indiana with a curiosity for the supernatural. When visiting, one can find various haunted locations throughout Indiana, share scary personal stories, read about urban legends, and set up meet times to go ghost hunting. While visiting, please be respectful to those with an affinity to the paranormal. Happy hunting!</p>
+  <br/>
+>>>>>>> develop
   <p class="new">Check out the newest post to our website!*</p><br />
   <hr />
   <mat-card class="example-card">
     <p class="title" *ngIf='newestPost.location'>{{newestPost.location}}</p>
     <p class="title" *ngIf='newestPost.title'>{{newestPost.title}}</p>
+<<<<<<< HEAD
+=======
+    <agm-map *ngIf="newestPost.latitude" [latitude]='latitude' [longitude]='longitude'>
+      <agm-marker [latitude]='newestPost.latitude' [longitude]='newestPost.longitude'></agm-marker>
+    </agm-map>
+>>>>>>> develop
     <img class="img" *ngIf='newestPost.img' src="{{newestPost.img}}" />
     <p class="des" *ngIf='newestPost.description'>{{newestPost.description}}</p>
     <p class="dateTime" *ngIf='newestPost.date'>Date: {{newestPost.date | date}}</p>

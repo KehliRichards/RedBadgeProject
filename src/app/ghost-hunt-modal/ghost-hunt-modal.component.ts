@@ -56,7 +56,7 @@ export class GhostHuntModalComponent implements OnInit {
     this.createForm = this.fb.group({
       tag: new FormControl(),
       location: new FormControl(),
-      time: new FormControl(),
+      // time: new FormControl(),
       date: new FormControl(),
       description: new FormControl()
     })
