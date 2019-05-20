@@ -6,9 +6,9 @@ export let APIURL = '';
 
 switch (window.location.hostname) {
   // this is the deployed angular application
-  case 'sits-rbproject.herokuapp.com':
+  case 'sits-project.herokuapp.com':
       // this is the full url of your deployed API
-      APIURL = 'https://sits-rbproject.herokuapp.com'
+      APIURL = 'https://sits-project.herokuapp.com'
       break;
   default:
       // this is the local host name of your API
